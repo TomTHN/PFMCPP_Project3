@@ -198,11 +198,11 @@ Part 1b - Step 2: Assignment
 
 Thing 1) Bank
 5 properties:
-    1) number of ATMs
-    2) amount of employees
-    3) amount of security cameras
-    4) number of bank counters
-    5) number of customers per day
+    1) number of ATMs (int)
+    2) amount of employees (int)
+    3) amount of security cameras (int)
+    4) number of bank counters (int)
+    5) number of customers per day (int)
 3 things it can do:
     1) withdraw money
     2) deposit money
@@ -210,11 +210,11 @@ Thing 1) Bank
 
 Thing 2) School
 5 properties:
-    1) amount of class rooms
-    2) number of teachers
-    3) amount of time to take a break
-    4) overall grade point average of school
-    5) number of pupils
+    1) amount of class rooms (int)
+    2) number of teachers (int)
+    3) amount of time to take a break (float)
+    4) overall grade point average of school (float)
+    5) number of pupils (int)
 3 things it can do:
     1) write good grades
     2) skip school
@@ -222,11 +222,11 @@ Thing 2) School
 
 Thing 3) swimming pool
 5 properties:
-    1) amount of pools
-    2) maximum hight of diving board
-    3) length of the swimming lane
-    4) amount of water
-    5) visitors per year
+    1) amount of pools (int)
+    2) maximum hight of diving board (meters) (float)
+    3) length of the swimming lane (meters) (float)
+    4) amount of water (cubic meter) (float)
+    5) visitors per year (int)
 3 things it can do:
     1) swim
     2) dive
@@ -234,11 +234,11 @@ Thing 3) swimming pool
 
 Thing 4) bike park
 5 properties:
-    1) amount of tracks
-    2) hight of the mountain
-    3) number of lifts
-    4) amount of black diamont tracks
-    5) accidents per year
+    1) amount of tracks (int)
+    2) hight of the mountain (meters) (float)
+    3) number of lifts (int)
+    4) amount of black diamont tracks (int)
+    5) accidents per year (int)
 3 things it can do:
     1) ride downhill
     2) eat lunch
