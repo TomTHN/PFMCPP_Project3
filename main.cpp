@@ -196,53 +196,7 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1) Bank
-5 properties:
-    1) number of ATMs (int)
-    2) amount of employees (int)
-    3) amount of security cameras (int)
-    4) number of bank counters (int)
-    5) number of customers per day (int)
-3 things it can do:
-    1) withdraw money
-    2) deposit money
-    3) take out credit
 
-Thing 2) School
-5 properties:
-    1) amount of class rooms (int)
-    2) number of teachers (int)
-    3) amount of time to take a break (float)
-    4) overall grade point average of school (float)
-    5) number of pupils (int)
-3 things it can do:
-    1) write good grades
-    2) skip school
-    3) eat lunch
-
-Thing 3) swimming pool
-5 properties:
-    1) amount of pools (int)
-    2) maximum hight of diving board (meters) (float)
-    3) length of the swimming lane (meters) (float)
-    4) amount of water (cubic meter) (float)
-    5) visitors per year (int)
-3 things it can do:
-    1) swim
-    2) dive
-    3) bathe in sun 
-
-Thing 4) bike park
-5 properties:
-    1) amount of tracks (int)
-    2) hight of the mountain (meters) (float)
-    3) number of lifts (int)
-    4) amount of black diamont tracks (int)
-    5) accidents per year (int)
-3 things it can do:
-    1) ride downhill
-    2) eat lunch
-    3) have good time
 */
 
 /*
@@ -545,11 +499,125 @@ MOVE THEM to the space below this block comment and put them in numerical order
     simply CUT and PASTE them in the space provided below:
 */
 
+Thing 1) Bank
+5 properties:
+    1) number of ATMs (int)
+    2) amount of employees (int)
+    3) amount of security cameras (int)
+    4) number of bank counters (int)
+    5) number of customers per day (int)
+3 things it can do:
+    1) withdraw money
+    2) deposit money
+    3) take out credit
 
+Thing 2) School
+5 properties:
+    1) amount of class rooms (int)
+    2) number of teachers (int)
+    3) amount of time to take a break (float)
+    4) overall grade point average of school (float)
+    5) number of pupils (int)
+3 things it can do:
+    1) write good grades
+    2) skip school
+    3) eat lunch
 
+Thing 3) swimming pool
+5 properties:
+    1) amount of pools (int)
+    2) maximum hight of diving board (meters) (float)
+    3) length of the swimming lane (meters) (float)
+    4) amount of water (cubic meter) (float)
+    5) visitors per year (int)
+3 things it can do:
+    1) swim
+    2) dive
+    3) bathe in sun 
 
+Thing 4) bike park
+5 properties:
+    1) amount of tracks (int)
+    2) hight of the mountain (meters) (float)
+    3) number of lifts (int)
+    4) amount of black diamont tracks (int)
+    5) accidents per year (int)
+3 things it can do:
+    1) ride downhill
+    2) eat lunch
+    3) have good time
 
+Thing 5) Breaks
+5 properties:
+    1) number pistons (int)
+    2) number screws (int)
+    3) hight of spacers (float)
+    4) number breaking pads (int)
+    5) maintenance interval (int)
+3 things it can do:
+    1) slow down bike
+    2) block wheels
+    3) squeak
 
+Thing 6) Pedals
+5 properties:
+    1) brand (std::string)
+    2) size (float)
+    3) color (std::string)
+    4) material (std::string)
+    5) amount of torque (int)
+3 things it can do:
+    1) assemble
+    2) turn 
+    3) accelerate bike
+
+Thing 7) Suspension
+5 properties:
+    1) preassure (float)
+    2) travel (int)
+    3) stanchion diameter (int)
+    4) spring type (std::string)
+    5) damper type (std::string)
+3 things it can do:
+    1) traction
+    2) dampen
+    3) break
+
+Thing 8) Frame
+5 properties:
+    1) material (std::string)
+    2) color (std::string)
+    3) brand (std::string)
+    4) weight (float)
+    5) size (float)
+3 things it can do:
+    1) asseble
+    2) be painted
+    3) break
+
+Thing 9) Handlebar
+5 properties:
+    1) brand (std::string)
+    2) clamp diameter (float)
+    3) rise (float)
+    4) color (std::string)
+    5) material (std::string)
+3 things it can do:
+    1) move bike to the right
+    2) move bike to the left
+    3) controlle the bike
+
+Thing 10) Mountain Bike
+5 properties:
+    1) Breaks
+    2) Pedals
+    3) Suspension
+    4) Frame
+    5) Handlebar
+3 things it can do:
+    1) crash into tree
+    2) make a bunny hop
+    3) go uphill
 
 
 /*
