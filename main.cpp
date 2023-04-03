@@ -434,65 +434,65 @@ example:
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
 
-Thing 5)
+Thing 5) Breaks
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number pistons (int)
+    2) number screws (int)
+    3) hight of spacers (float)
+    4) number breaking pads (int)
+    5) maintenance interval (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) slow down bike
+    2) block wheels
+    3) squeak
 
-Thing 6)
+Thing 6) Pedals
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) brand (std::string)
+    2) size (float)
+    3) color (std::string)
+    4) material (std::string)
+    5) amount of torque (int)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) assemble
+    2) turn 
+    3) accelerate bike
 
-Thing 7)
+Thing 7) Suspension
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) preassure (float)
+    2) travel (int)
+    3) stanchion diameter (int)
+    4) spring type (std::string)
+    5) damper type (std::string)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) traction
+    2) dampen
+    3) break
 
-Thing 8)
+Thing 8) Frame
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) material (std::string)
+    2) color (std::string)
+    3) brand (std::string)
+    4) weight (float)
+    5) size (float)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) asseble
+    2) be painted
+    3) break
 
-Thing 9)
+Thing 9) Handlebar
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) brand (std::string)
+    2) clamp diameter (float)
+    3) rise (float)
+    4) color (std::string)
+    5) material (std::string)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) move bike to the right
+    2) move bike to the left
+    3) controlle the bike
  */
 
 /*
