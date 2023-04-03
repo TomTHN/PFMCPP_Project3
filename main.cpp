@@ -196,53 +196,53 @@ Part 1b - Step 2: Assignment
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
 
-Thing 1)
+Thing 1) Bank
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of ATMs
+    2) amount of employees
+    3) amount of security cameras
+    4) number of bank counters
+    5) number of customers per day
 3 things it can do:
-    1)
-    2)
-    3)
+    1) withdraw money
+    2) deposit money
+    3) take out credit
 
-Thing 2)
+Thing 2) School
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) amount of class rooms
+    2) number of teachers
+    3) amount of time to take a break
+    4) overall grade point average of school
+    5) number of pupils
 3 things it can do:
-    1)
-    2)
-    3)
+    1) write good grades
+    2) skip school
+    3) eat lunch
 
-Thing 3)
+Thing 3) swimming pool
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) amount of pools
+    2) maximum hight of diving board
+    3) length of the swimming lane
+    4) amount of water
+    5) visitors per year
 3 things it can do:
-    1)
-    2)
-    3)
+    1) swim
+    2) dive
+    3) bathe in sun 
 
-Thing 4)
+Thing 4) bike park
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) amount of tracks
+    2) hight of the mountain
+    3) number of lifts
+    4) amount of black diamont tracks
+    5) accidents per year
 3 things it can do:
-    1)
-    2)
-    3)
+    1) ride downhill
+    2) eat lunch
+    3) have good time
 */
 
 /*
