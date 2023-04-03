@@ -83,51 +83,51 @@ Main Object: Car Interior
         Name 4 nouns you'll find on the [Sub Object]
             1) paddle shifters
             2) 'cruise control' controls
-            3) 
-            4) 
+            3) horn
+            4) direction indicator
         Name 2 actions that the [Sub Object] can do:
             1) adjust cruise control settings.
-            2)
+            2) honk to warn traffic participants
         
     Sub Object: Instrument Cluster
         Name 4 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
-            4)
+            1) fuel gauge
+            2) speed indicator
+            3) engine temperature display
+            4) display for rotational speeds
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) shows how fast the care is
+            2) indicats the rotational speed
+            3) shows engine temperature
     
     Sub Object: Environment Controls
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) air conditioner
+            2) seat heating
+            3) circulating air button 
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) adjust the seat temperature
+            2) adjust the cabin temperatur
+            3) regulate the air flow
 
     Sub Object: Infotainment System
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) radio
+            2) navigator
+            3) hands-free device
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) take the phone
+            2) adjust volume of the music
+            3) shows you the right way
 
     Sub Object: Seat 
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) seat positioning buttons
+            2) neck support
+            3) massage seat (maybe)
         Name 2 actions that the [Sub Object] can do:
-            1)
-            2)
+            1) adjust the position of the seat
+            2) set hight of the neck support
 */
 
 /*
