@@ -195,8 +195,6 @@ Part 1b - Step 2: Assignment
         primitives.
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
-
-
 */
 
 /*
@@ -290,18 +288,6 @@ Part 1c - Step 4: Assignment
 Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
-
-Thing 10) Mountain Bike
-5 properties:
-    1) Breaks
-    2) Pedals
-    3) Suspension
-    4) Frame
-    5) Handlebar
-3 things it can do:
-    1) crash into tree
-    2) make a bunny hop
-    3) go uphill
  */
 
  /*
@@ -387,66 +373,6 @@ example:
     If #10's first property was 'Engine', then `Thing 5)` will be `Engine`. 
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
-
-Thing 5) Breaks
-5 properties:
-    1) number pistons (int)
-    2) number screws (int)
-    3) hight of spacers (float)
-    4) number breaking pads (int)
-    5) maintenance interval (int)
-3 things it can do:
-    1) slow down bike
-    2) block wheels
-    3) squeak
-
-Thing 6) Pedals
-5 properties:
-    1) brand (std::string)
-    2) size (float)
-    3) color (std::string)
-    4) material (std::string)
-    5) amount of torque (int)
-3 things it can do:
-    1) assemble
-    2) turn 
-    3) accelerate bike
-
-Thing 7) Suspension
-5 properties:
-    1) preassure (float)
-    2) travel (int)
-    3) stanchion diameter (int)
-    4) spring type (std::string)
-    5) damper type (std::string)
-3 things it can do:
-    1) traction
-    2) dampen
-    3) break
-
-Thing 8) Frame
-5 properties:
-    1) material (std::string)
-    2) color (std::string)
-    3) brand (std::string)
-    4) weight (float)
-    5) size (float)
-3 things it can do:
-    1) asseble
-    2) be painted
-    3) break
-
-Thing 9) Handlebar
-5 properties:
-    1) brand (std::string)
-    2) clamp diameter (float)
-    3) rise (float)
-    4) color (std::string)
-    5) material (std::string)
-3 things it can do:
-    1) move bike to the right
-    2) move bike to the left
-    3) controlle the bike
  */
 
 /*
@@ -499,6 +425,7 @@ MOVE THEM to the space below this block comment and put them in numerical order
     simply CUT and PASTE them in the space provided below:
 */
 
+/*
 Thing 1) Bank
 5 properties:
     1) number of ATMs (int)
@@ -618,7 +545,7 @@ Thing 10) Mountain Bike
     1) crash into tree
     2) make a bunny hop
     3) go uphill
-
+/*
 
 /*
 =================
