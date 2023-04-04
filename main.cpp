@@ -545,7 +545,7 @@ Thing 10) Mountain Bike
     1) crash into tree
     2) make a bunny hop
     3) go uphill
-/*
+*/
 
 /*
 =================
