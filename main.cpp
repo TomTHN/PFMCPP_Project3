@@ -459,6 +459,19 @@ struct Bank
     float depositMoney(float money); //returns updated bank balance
     //    - take out credit 
     void takeCredit(float amountCredit); 
+
+    struct Customer
+    {
+        int customerNumber = 12345678;
+        int age = 45;
+        std::string gender = "male";
+        float bankBalance = 4550.60f;
+        int memberTime  = 600; //days
+
+        void cancelBankAccount();
+        void talkEmployee(std::string question);
+        void robBank();
+    };
 };
 
 /*
@@ -567,6 +580,19 @@ struct BikePark
     bool eatLunch(std::string whatEat); //returns false if person is still hungry 
     //    - have good time      
     void haveGoodTime();
+
+    struct Bike
+    {
+        bool hasFullSuspension = true;
+        std::string brand = "GT";
+        std::string color = "red";
+        float wheelSize = 27.5f;
+        float ageBike = 4.5f;
+
+        float inflateTires(float targetPressure); //Returns updated pressure 
+        void setupSuspension();
+        void repair();
+    };
 };
 
 /*
@@ -674,7 +700,7 @@ struct Suspension
     //    - dampen
     void dampen();
     //    - break        
-    void break();
+    void breakSuspension();
 };
 
 /*
@@ -710,7 +736,7 @@ struct Frame
     //    - be painted
     void bePainted(std::string color);
     //    - break   
-    void break();
+    void breakFrame();
 };
 
 /*
@@ -782,7 +808,7 @@ struct MountainBike
     //    - make a bunny hop
     void bunnyHop();
     //    - go uphill          
-    void goUphill;
+    void goUphill();
 };
 
 /*
