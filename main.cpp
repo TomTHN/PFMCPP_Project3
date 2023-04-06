@@ -83,51 +83,51 @@ Main Object: Car Interior
         Name 4 nouns you'll find on the [Sub Object]
             1) paddle shifters
             2) 'cruise control' controls
-            3) 
-            4) 
+            3) horn
+            4) direction indicator
         Name 2 actions that the [Sub Object] can do:
             1) adjust cruise control settings.
-            2)
+            2) honk to warn traffic participants
         
     Sub Object: Instrument Cluster
         Name 4 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
-            4)
+            1) fuel gauge
+            2) speed indicator
+            3) engine temperature display
+            4) display for rotational speeds
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) shows how fast the care is
+            2) indicats the rotational speed
+            3) shows engine temperature
     
     Sub Object: Environment Controls
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) air conditioner
+            2) seat heating
+            3) circulating air button 
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) adjust the seat temperature
+            2) adjust the cabin temperatur
+            3) regulate the air flow
 
     Sub Object: Infotainment System
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) radio
+            2) navigator
+            3) hands-free device
         Name 3 actions that the [Sub Object] can do:
-            1)
-            2)
-            3)
+            1) take the phone
+            2) adjust volume of the music
+            3) shows you the right way
 
     Sub Object: Seat 
         Name 3 nouns you'll find on the [Sub Object]
-            1)
-            2)
-            3)
+            1) seat positioning buttons
+            2) neck support
+            3) massage seat (maybe)
         Name 2 actions that the [Sub Object] can do:
-            1)
-            2)
+            1) adjust the position of the seat
+            2) set hight of the neck support
 */
 
 /*
@@ -195,54 +195,6 @@ Part 1b - Step 2: Assignment
         primitives.
         c) pick properties that can eventually be represented with 
         'int float double bool char std::string'.
-
-Thing 1)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 2)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 3)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 4)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
 */
 
 /*
@@ -336,18 +288,6 @@ Part 1c - Step 4: Assignment
 Define an object that is made of 5 sub-objects.
     These 5 sub-objects will not be defined using Primitives, but instead will be their own UDTs 
     you'll define these 5 sub-objects in Part 1d.
-
-Thing 10)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
  */
 
  /*
@@ -433,66 +373,6 @@ example:
     If #10's first property was 'Engine', then `Thing 5)` will be `Engine`. 
     You will need to provide 5 properties and 3 member functions of that Engine object in plain English.
     Remember to pick properties that can be represented with 'int float double bool char std::string'.
-
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
-
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
  */
 
 /*
@@ -544,11 +424,6 @@ MOVE THEM to the space below this block comment and put them in numerical order
     I only want to see the 10 UDTs written BELOW this block comment, in numerical order (1 - 10).
     simply CUT and PASTE them in the space provided below:
 */
-
-
-
-
-
 
 
 
@@ -1010,13 +885,165 @@ Part 1e - Step 19: Request a review
 paste your code below
 */
 
+struct Bank
+{
+    int numATM = 3;
+    int amountEmployees = 20;
+    int amountSecurityCameras = 5;
+    int numBankCounters = 5;
+    int numCustomersDay = 1000;
 
+    struct Customer
+    {
+        int customerNumber = 12345678;
+        int age = 45;
+        std::string gender = "male";
+        float bankBalance = 4550.60f;
+        int memberTime  = 600; //days
 
+        void cancelBankAccount(int customerNumber);
+        void talkEmployee(std::string question);
+        void robBank(int bankBalance = 0);
+    };
 
+    float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
+    float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
+    float takeCredit(Customer customer, float amountCredit, int periodToRepay); //returns interest rate
 
+    Customer Peter;
+};
 
+struct School
+{
+    int amountClassRooms = 25;
+    int numTeachers = 50; 
+    float amountBreakTime = 30.0f; //minutes
+    float overallGradePointAverageSchool = 2.4f;
+    int numPupils = 630;
 
+    void writeGoodGrades();
+    void skipSchool(); 
+    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
+};
 
+struct SwimmingPool
+{
+    int amountPools = 4;
+    float maxHightDivingBoard = 10.0f; //meters
+    float lengthSwimminglane = 50.0; //meters
+    float amountWater = 30000.0f; //cubic meter
+    int visitorsYear = 20000;
+
+    void swim(std::string direction);
+    void dive(bool breathStatus);         
+    int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
+};
+
+struct BikePark
+{
+    int amountTracks = 23;
+    float hightMountain = 3400; //meters
+    int numLifts = 5;
+    int amountBlackDiamontTracks = 10;
+    int accidentsYear = 700;
+    
+    struct Bike
+        {
+            bool hasFullSuspension = true;
+            std::string brand = "GT";
+            std::string color = "red";
+            float wheelSize = 27.5f;
+            float ageBike = 4.5f;
+    
+            float inflateTires(float targetPressure); //Returns updated pressure 
+            void setupSuspension(float targetPressure, float targetSag);
+            void repair(std::string brokenComponent);
+        };
+
+    void rideDownhill(Bike bike, std::string track);
+    bool eatLunch(std::string whatEat); //returns false if person is still hungry     
+    void haveGoodTime();
+
+    Bike firstBike;
+};
+
+struct Brakes
+{
+    int numPistons = 4;
+    int numScrews = 6;
+    float higthSpacer = 34.3f; //mm
+    int numBreakPads = 4;
+    int maintenanceInterval = 365; //days
+
+    float slowDownBike(float initialSpeed, float amountDeceleration); //returns updated speed
+    void blockWheels(float brakePower, int systemMass, float speed); 
+    bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
+};
+
+struct Pedals
+{
+    std::string brand = "RaceFace";
+    int size = 10;
+    std::string color = "black";
+    std::string material = "titanium";
+    int amountTorque = 15; //Nm
+
+    void assemble();
+    void turn();
+    float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
+};
+
+struct Suspension
+{
+    float pressure = 80.0; //PSI
+    int travel = 170; //mm
+    int stanchionDiameter = 38; //mm 
+    std::string springType = "air";
+    std::string damperType = "coil";
+
+    void traction(bool setupCorrect);
+    void dampen(float impactForce);   
+    bool breakSuspension(); //returns suspension status
+};
+
+struct Frame
+{
+    std::string material = "carbon";
+    std::string color = "black";
+    std::string brand = "YT Industries";
+
+    float weight = 5.4f; //kg
+    float size = 634.0f; //mm
+    void assemble(std::string nextTask); 
+    void bePainted(std::string color);
+    bool breakFrame(); //returns frame status
+};
+
+struct Handlebar
+{
+    std::string brand = "RaceFace";
+    float clampDiameter = 25.3f; //mm
+    float rise = 20.4f; //mm
+    std::string color = "gold";
+    std::string material = "carbon";
+
+    float moveBikeRight(float initSteeringAngle); //returns updated angle
+    float moveBikeLeft(float initSteeringAngle); //returns updated angle
+    bool controlleBike(float speedAngleChange);// returns controlle status 
+};
+
+struct MountainBike
+{
+    Brakes brakes;
+    Pedals pedals;
+    Suspension suspesion;
+    Frame frame;
+    Handlebar handlebar;
+
+    void crashTree(bool brakesStatus, Handlebar handlebar);
+    void bunnyHop(Suspension suspension, int jumpHight);    
+    void goUphill(Pedals pedals, Handlebar handlebar, float slope);
+};
 
 int main()
 {
