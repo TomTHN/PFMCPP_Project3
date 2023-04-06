@@ -425,398 +425,7 @@ MOVE THEM to the space below this block comment and put them in numerical order
     simply CUT and PASTE them in the space provided below:
 */
 
-/*
-Thing 1) Bank
-5 properties:
-    1) number of ATMs (int)
-    2) amount of employees (int)
-    3) amount of security cameras (int)
-    4) number of bank counters (int)
-    5) number of customers per day (int)
-3 things it can do:
-    1) withdraw money
-    2) deposit money
-    3) take out credit
-*/
 
-struct Bank
-{
-    //5 properties:
-    //    - number of ATMs (int)
-    int numATM = 3;
-    //    - amount of employees (int)
-    int amountEmployees = 20;
-    //    - amount of security cameras (int)
-    int amountSecurityCameras = 5;
-    //    - number of bank counters (int)
-    int numBankCounters = 5;
-    //    - number of customers per day (int)
-    int numCustomersDay = 1000;
-
-    struct Customer
-    {
-        int customerNumber = 12345678;
-        int age = 45;
-        std::string gender = "male";
-        float bankBalance = 4550.60f;
-        int memberTime  = 600; //days
-
-        void cancelBankAccount();
-        void talkEmployee(std::string question);
-        void robBank();
-    };
-
-    //3 things it can do:
-    //    - withdraw money
-    float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
-    //    - deposit money
-    float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
-    //    - take out credit 
-    float takeCredit(Customer customer, float amountCredit, int periodToRepay); //returns interest rate
-
-    Customer Peter;
-};
-
-/*
-Thing 2) School
-5 properties:
-    1) amount of class rooms (int)
-    2) number of teachers (int)
-    3) amount of time to take a break (float)
-    4) overall grade point average of school (float)
-    5) number of pupils (int)
-3 things it can do:
-    1) write good grades
-    2) skip school
-    3) eat lunch
-*/
-
-struct School
-{
-    //5 properties:
-    //    - amount of class rooms (int)
-    int amountClassRooms = 25;
-    //    - number of teachers (int)
-    int numTeachers = 50; 
-    //    - amount of time to take a break (float)
-    float amountBreakTime = 30.0f; //minutes
-    //    - overall grade point average of school (float)
-    float overallGradePointAverageSchool = 2.4f;
-    //    - number of pupils (int)
-    int numPupils = 630;
-    //3 things it can do:
-    //    - write good grades
-    void writeGoodGrades();
-    //    - skip school
-    void skipSchool();
-    //    - eat lunch   
-    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
-};
-
-/*
-Thing 3) swimming pool
-5 properties:
-    1) amount of pools (int)
-    2) maximum hight of diving board (meters) (float)
-    3) length of the swimming lane (meters) (float)
-    4) amount of water (cubic meter) (float)
-    5) visitors per year (int)
-3 things it can do:
-    1) swim
-    2) dive
-    3) bathe in sun 
-*/
-
-struct SwimmingPool
-{
-    //5 properties:
-    //    - amount of pools (int)
-    int amountPools = 4;
-    //    - maximum hight of diving board (meters) (float)
-    float maxHightDivingBoard = 10.0f; //meters
-    //    - length of the swimming lane (meters) (float)
-    float lengthSwimminglane = 50.0; //meters
-    //    - amount of water (cubic meter) (float)
-    float amountWater = 30000.0f; //cubic meter
-    //    - visitors per year (int)
-    int visitorsYear = 20000;
-    //3 things it can do:
-    //    - swim
-    void swim();
-    //    - dive
-    void dive();
-    //    - bathe in sun          
-    int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
-};
-
-/*
-Thing 4) bike park
-5 properties:
-    1) amount of tracks (int)
-    2) hight of the mountain (meters) (float)
-    3) number of lifts (int)
-    4) amount of black diamont tracks (int)
-    5) accidents per year (int)
-3 things it can do:
-    1) ride downhill
-    2) eat lunch
-    3) have good time
-*/
-
-struct BikePark
-{
-    //5 properties:
-    //    - amount of tracks (int)
-    int amountTracks = 23;
-    //    - hight of the mountain (meters) (float)
-    float hightMountain = 3400; //meters
-    //    - number of lifts (int)
-    int numLifts = 5;
-    //    - amount of black diamont tracks (int)
-    int amountBlackDiamontTracks = 10;
-    //    - accidents per year (int)
-    int accidentsYear = 700;
-    
-    struct Bike
-        {
-            bool hasFullSuspension = true;
-            std::string brand = "GT";
-            std::string color = "red";
-            float wheelSize = 27.5f;
-            float ageBike = 4.5f;
-    
-            float inflateTires(float targetPressure); //Returns updated pressure 
-            void setupSuspension(float targetPressure, float targetSag);
-            void repair(std::string brokenComponent);
-        };
-
-    //3 things it can do:
-    //    - ride downhill
-    void rideDownhill(Bike bike, std::string track);
-    //    - eat lunch
-    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
-    //    - have good time      
-    void haveGoodTime();
-
-    Bike firstBike;
-
-};
-
-/*
-Thing 5) Brakes
-5 properties:
-    1) number pistons (int)
-    2) number screws (int)
-    3) hight of spacers (float)
-    4) number breaking pads (int)
-    5) maintenance interval (int)
-3 things it can do:
-    1) slow down bike
-    2) block wheels
-    3) squeak
-*/
-
-struct Brakes
-{
-    //5 properties:
-    //    - 1) number pistons (int)
-    int numPistons = 4;
-    //    - number screws (int)
-    int numScrews = 6;
-    //    - hight of spacers (float)
-    float higthSpacer = 34.3f; //mm
-    //    - number breaking pads (int)
-    int numBreakPads = 4;
-    //    - maintenance interval (int)
-    int maintenanceInterval = 365; //days
-    //3 things it can do:
-    //    - slow down bike
-    float slowDownBike(float initialSpeed, float amountDeceleration); //returns updated speed
-    //    - block wheels
-    void blockWheels();
-    //    - squeak  
-    bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
-};
-
-/*
-Thing 6) Pedals
-5 properties:
-    1) brand (std::string)
-    2) size (float)
-    3) color (std::string)
-    4) material (std::string)
-    5) amount of torque (int)
-3 things it can do:
-    1) assemble
-    2) turn 
-    3) accelerate bike
-*/
-
-struct Pedals
-{
-    //5 properties:
-    //    - brand (std::string)
-    std::string brand = "RaceFace";
-    //    - size (float)
-    int size = 10;
-    //    - color (std::string)
-    std::string color = "black";
-    //    - material (std::string)
-    std::string material = "titanium";
-    //    - amount of torque (int)
-    int amountTorque = 15; //Nm
-    //3 things it can do:
-    //    - assemble
-    void assemble();
-    //    - turn 
-    void turn();
-    //    - accelerate bike    
-    void accelerateBike();
-};
-
-/*
-Thing 7) Suspension
-5 properties:
-    1) pressure (float)
-    2) travel (int)
-    3) stanchion diameter (int)
-    4) spring type (std::string)
-    5) damper type (std::string)
-3 things it can do:
-    1) traction
-    2) dampen
-    3) break
-*/
-
-struct Suspension
-{
-    //5 properties:
-    //    - pressure (float)
-    float pressure = 80.0; //PSI
-    //    - travel (int)
-    int travel = 170; //mm
-    //    - stanchion diameter (int)
-    int stanchionDiameter = 38; //mm 
-    //    - spring type (std::string)
-    std::string springType = "air";
-    //    - damper type (std::string)
-    std::string damperType = "coil";
-    //3 things it can do:
-    //    - traction
-    void traction();
-    //    - dampen
-    void dampen();
-    //    - break        
-    void breakSuspension();
-};
-
-/*
-Thing 8) Frame
-5 properties:
-    1) material (std::string)
-    2) color (std::string)
-    3) brand (std::string)
-    4) weight (float)
-    5) size (float)
-3 things it can do:
-    1) asseble
-    2) be painted
-    3) break
-*/
-
-struct Frame
-{
-    //5 properties:
-    //    - material (std::string)
-    std::string material = "carbon";
-    //    - color (std::string)
-    std::string color = "black";
-    //    - brand (std::string)
-    std::string brand = "YT Industries";
-    //    - weight (float)
-    float weight = 5.4f; //kg
-    //    - size (float)
-    float size = 634.0f; //mm
-    //3 things it can do:
-    //    - asseble
-    void assemble();
-    //    - be painted
-    void bePainted(std::string color);
-    //    - break   
-    void breakFrame();
-};
-
-/*
-Thing 9) Handlebar
-5 properties:
-    1) brand (std::string)
-    2) clamp diameter (float)
-    3) rise (float)
-    4) color (std::string)
-    5) material (std::string)
-3 things it can do:
-    1) move bike to the right
-    2) move bike to the left
-    3) controlle the bike
-*/
-
-struct Handlebar
-{
-    //5 properties:
-    //    - brand (std::string)
-    std::string brand = "RaceFace";
-    //    - clamp diameter (float)
-    float clampDiameter = 25.3f; //mm
-    //    - rise (float)
-    float rise = 20.4f; //mm
-    //    - color (std::string)
-    std::string color = "gold";
-    //    - material (std::string)
-    std::string material = "carbon";
-    //3 things it can do:
-    //    - move bike to the right
-    void moveBikeRight();
-    //    - move bike to the left
-    void moveBikeLeft();
-    //    - controlle the bike   
-    void controlleBike();
-};
-
-/*
-Thing 10) Mountain Bike
-5 properties:
-    1) Brakes
-    2) Pedals
-    3) Suspension
-    4) Frame
-    5) Handlebar
-3 things it can do:
-    1) crash into tree
-    2) make a bunny hop
-    3) go uphill
-*/
-
-struct MountainBike
-{
-    //5 properties:
-    //    - Brakes
-    std::string brakes = "Sram";
-    //    - Pedals
-    std::string pedals = "RaceFace";
-    //    - Suspension
-    std::string suspension = "Fox";
-    //    - Frame
-    std::string frame = "YT Industries";
-    //    - Handlebar
-    std::string handlebar = "RaceFace";
-    //3 things it can do:
-    //    - crash into tree
-    void crashTree();
-    //    - make a bunny hop
-    void bunnyHop();
-    //    - go uphill          
-    void goUphill();
-};
 
 /*
 =================
@@ -1276,13 +885,165 @@ Part 1e - Step 19: Request a review
 paste your code below
 */
 
+struct Bank
+{
+    int numATM = 3;
+    int amountEmployees = 20;
+    int amountSecurityCameras = 5;
+    int numBankCounters = 5;
+    int numCustomersDay = 1000;
 
+    struct Customer
+    {
+        int customerNumber = 12345678;
+        int age = 45;
+        std::string gender = "male";
+        float bankBalance = 4550.60f;
+        int memberTime  = 600; //days
 
+        void cancelBankAccount(int customerNumber);
+        void talkEmployee(std::string question);
+        void robBank(int bankBalance = 0);
+    };
 
+    float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
+    float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
+    float takeCredit(Customer customer, float amountCredit, int periodToRepay); //returns interest rate
 
+    Customer Peter;
+};
 
+struct School
+{
+    int amountClassRooms = 25;
+    int numTeachers = 50; 
+    float amountBreakTime = 30.0f; //minutes
+    float overallGradePointAverageSchool = 2.4f;
+    int numPupils = 630;
 
+    void writeGoodGrades();
+    void skipSchool(); 
+    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
+};
 
+struct SwimmingPool
+{
+    int amountPools = 4;
+    float maxHightDivingBoard = 10.0f; //meters
+    float lengthSwimminglane = 50.0; //meters
+    float amountWater = 30000.0f; //cubic meter
+    int visitorsYear = 20000;
+
+    void swim(std::string direction);
+    void dive(bool breathStatus);         
+    int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
+};
+
+struct BikePark
+{
+    int amountTracks = 23;
+    float hightMountain = 3400; //meters
+    int numLifts = 5;
+    int amountBlackDiamontTracks = 10;
+    int accidentsYear = 700;
+    
+    struct Bike
+        {
+            bool hasFullSuspension = true;
+            std::string brand = "GT";
+            std::string color = "red";
+            float wheelSize = 27.5f;
+            float ageBike = 4.5f;
+    
+            float inflateTires(float targetPressure); //Returns updated pressure 
+            void setupSuspension(float targetPressure, float targetSag);
+            void repair(std::string brokenComponent);
+        };
+
+    void rideDownhill(Bike bike, std::string track);
+    bool eatLunch(std::string whatEat); //returns false if person is still hungry     
+    void haveGoodTime();
+
+    Bike firstBike;
+};
+
+struct Brakes
+{
+    int numPistons = 4;
+    int numScrews = 6;
+    float higthSpacer = 34.3f; //mm
+    int numBreakPads = 4;
+    int maintenanceInterval = 365; //days
+
+    float slowDownBike(float initialSpeed, float amountDeceleration); //returns updated speed
+    void blockWheels(float brakePower, int systemMass, float speed); 
+    bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
+};
+
+struct Pedals
+{
+    std::string brand = "RaceFace";
+    int size = 10;
+    std::string color = "black";
+    std::string material = "titanium";
+    int amountTorque = 15; //Nm
+
+    void assemble();
+    void turn();
+    float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
+};
+
+struct Suspension
+{
+    float pressure = 80.0; //PSI
+    int travel = 170; //mm
+    int stanchionDiameter = 38; //mm 
+    std::string springType = "air";
+    std::string damperType = "coil";
+
+    void traction(bool setupCorrect);
+    void dampen(float impactForce);   
+    bool breakSuspension(); //returns suspension status
+};
+
+struct Frame
+{
+    std::string material = "carbon";
+    std::string color = "black";
+    std::string brand = "YT Industries";
+
+    float weight = 5.4f; //kg
+    float size = 634.0f; //mm
+    void assemble(std::string nextTask); 
+    void bePainted(std::string color);
+    bool breakFrame(); //returns frame status
+};
+
+struct Handlebar
+{
+    std::string brand = "RaceFace";
+    float clampDiameter = 25.3f; //mm
+    float rise = 20.4f; //mm
+    std::string color = "gold";
+    std::string material = "carbon";
+
+    float moveBikeRight(float initSteeringAngle); //returns updated angle
+    float moveBikeLeft(float initSteeringAngle); //returns updated angle
+    bool controlleBike(float speedAngleChange);// returns controlle status 
+};
+
+struct MountainBike
+{
+    Brakes brakes;
+    Pedals pedals;
+    Suspension suspesion;
+    Frame frame;
+    Handlebar handlebar;
+
+    void crashTree(bool brakesStatus, Handlebar handlebar);
+    void bunnyHop(Suspension suspension, int jumpHight);    
+    void goUphill(Pedals pedals, Handlebar handlebar, float slope);
+};
 
 int main()
 {
