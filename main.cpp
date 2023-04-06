@@ -452,13 +452,6 @@ struct Bank
     int numBankCounters = 5;
     //    - number of customers per day (int)
     int numCustomersDay = 1000;
-    //3 things it can do:
-    //    - withdraw money
-    float withdrawMoney(float money); //returns updated bank balance
-    //    - deposit money
-    float depositMoney(float money); //returns updated bank balance
-    //    - take out credit 
-    void takeCredit(float amountCredit); 
 
     struct Customer
     {
@@ -472,6 +465,16 @@ struct Bank
         void talkEmployee(std::string question);
         void robBank();
     };
+
+    //3 things it can do:
+    //    - withdraw money
+    float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
+    //    - deposit money
+    float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
+    //    - take out credit 
+    float takeCredit(Customer customer, float amountCredit, int periodToRepay); //returns interest rate
+
+    Customer Peter;
 };
 
 /*
@@ -543,7 +546,7 @@ struct SwimmingPool
     //    - dive
     void dive();
     //    - bathe in sun          
-    void bathInSun();
+    int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
 };
 
 /*
@@ -573,26 +576,30 @@ struct BikePark
     int amountBlackDiamontTracks = 10;
     //    - accidents per year (int)
     int accidentsYear = 700;
+    
+    struct Bike
+        {
+            bool hasFullSuspension = true;
+            std::string brand = "GT";
+            std::string color = "red";
+            float wheelSize = 27.5f;
+            float ageBike = 4.5f;
+    
+            float inflateTires(float targetPressure); //Returns updated pressure 
+            void setupSuspension(float targetPressure, float targetSag);
+            void repair(std::string brokenComponent);
+        };
+
     //3 things it can do:
     //    - ride downhill
-    void rideDownhill();
+    void rideDownhill(Bike bike, std::string track);
     //    - eat lunch
     bool eatLunch(std::string whatEat); //returns false if person is still hungry 
     //    - have good time      
     void haveGoodTime();
 
-    struct Bike
-    {
-        bool hasFullSuspension = true;
-        std::string brand = "GT";
-        std::string color = "red";
-        float wheelSize = 27.5f;
-        float ageBike = 4.5f;
+    Bike firstBike;
 
-        float inflateTires(float targetPressure); //Returns updated pressure 
-        void setupSuspension();
-        void repair();
-    };
 };
 
 /*
@@ -624,11 +631,11 @@ struct Brakes
     int maintenanceInterval = 365; //days
     //3 things it can do:
     //    - slow down bike
-    void slowDownBike();
+    float slowDownBike(float initialSpeed, float amountDeceleration); //returns updated speed
     //    - block wheels
     void blockWheels();
     //    - squeak  
-    void squeak();
+    bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
 };
 
 /*
