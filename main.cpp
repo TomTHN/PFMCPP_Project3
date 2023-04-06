@@ -454,8 +454,11 @@ struct Bank
     int numCustomersDay = 1000;
     //3 things it can do:
     //    - withdraw money
+    float withdrawMoney(float money); //returns updated bank balance
     //    - deposit money
-    //    - take out credit            
+    float depositMoney(float money); //returns updated bank balance
+    //    - take out credit 
+    void takeCredit(float amountCredit); 
 };
 
 /*
@@ -487,8 +490,11 @@ struct School
     int numPupils = 630;
     //3 things it can do:
     //    - write good grades
+    void writeGoodGrades();
     //    - skip school
-    //    - eat lunch         
+    void skipSchool();
+    //    - eat lunch   
+    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
 };
 
 /*
@@ -520,8 +526,11 @@ struct SwimmingPool
     int visitorsYear = 20000;
     //3 things it can do:
     //    - swim
+    void swim();
     //    - dive
+    void dive();
     //    - bathe in sun          
+    void bathInSun();
 };
 
 /*
@@ -553,8 +562,11 @@ struct BikePark
     int accidentsYear = 700;
     //3 things it can do:
     //    - ride downhill
+    void rideDownhill();
     //    - eat lunch
-    //    - have good time        
+    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
+    //    - have good time      
+    void haveGoodTime();
 };
 
 /*
@@ -586,8 +598,11 @@ struct Brakes
     int maintenanceInterval = 365; //days
     //3 things it can do:
     //    - slow down bike
+    void slowDownBike();
     //    - block wheels
-    //    - squeak         
+    void blockWheels();
+    //    - squeak  
+    void squeak();
 };
 
 /*
@@ -619,8 +634,11 @@ struct Pedals
     int amountTorque = 15; //Nm
     //3 things it can do:
     //    - assemble
+    void assemble();
     //    - turn 
-    //    - accelerate bike        
+    void turn();
+    //    - accelerate bike    
+    void accelerateBike();
 };
 
 /*
@@ -652,8 +670,11 @@ struct Suspension
     std::string damperType = "coil";
     //3 things it can do:
     //    - traction
+    void traction();
     //    - dampen
-    //    - break            
+    void dampen();
+    //    - break        
+    void break();
 };
 
 /*
@@ -685,8 +706,11 @@ struct Frame
     float size = 634.0f; //mm
     //3 things it can do:
     //    - asseble
+    void assemble();
     //    - be painted
-    //    - break          
+    void bePainted(std::string color);
+    //    - break   
+    void break();
 };
 
 /*
@@ -718,8 +742,11 @@ struct Handlebar
     std::string material = "carbon";
     //3 things it can do:
     //    - move bike to the right
+    void moveBikeRight();
     //    - move bike to the left
-    //    - controlle the bike         
+    void moveBikeLeft();
+    //    - controlle the bike   
+    void controlleBike();
 };
 
 /*
@@ -751,8 +778,11 @@ struct MountainBike
     std::string handlebar = "RaceFace";
     //3 things it can do:
     //    - crash into tree
+    void crashTree();
     //    - make a bunny hop
+    void bunnyHop();
     //    - go uphill          
+    void goUphill;
 };
 
 /*
