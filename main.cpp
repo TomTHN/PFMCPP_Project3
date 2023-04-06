@@ -443,10 +443,15 @@ struct Bank
 {
     //5 properties:
     //    - number of ATMs (int)
+    int numATM = 3;
     //    - amount of employees (int)
+    int amountEmployees = 20;
     //    - amount of security cameras (int)
+    int amountSecurityCameras = 5;
     //    - number of bank counters (int)
+    int numBankCounters = 5;
     //    - number of customers per day (int)
+    int numCustomersDay = 1000;
     //3 things it can do:
     //    - withdraw money
     //    - deposit money
@@ -471,10 +476,15 @@ struct School
 {
     //5 properties:
     //    - amount of class rooms (int)
+    int amountClassRooms = 25;
     //    - number of teachers (int)
+    int numTeachers = 50; 
     //    - amount of time to take a break (float)
+    float amountBreakTime = 30.0f; //minutes
     //    - overall grade point average of school (float)
+    float overallGradePointAverageSchool = 2.4f;
     //    - number of pupils (int)
+    int numPupils = 630;
     //3 things it can do:
     //    - write good grades
     //    - skip school
@@ -499,10 +509,15 @@ struct SwimmingPool
 {
     //5 properties:
     //    - amount of pools (int)
+    int amountPools = 4;
     //    - maximum hight of diving board (meters) (float)
+    float maxHightDivingBoard = 10.0f; //meters
     //    - length of the swimming lane (meters) (float)
+    float lengthSwimminglane = 50.0; //meters
     //    - amount of water (cubic meter) (float)
+    float amountWater = 30000.0f; //cubic meter
     //    - visitors per year (int)
+    int visitorsYear = 20000;
     //3 things it can do:
     //    - swim
     //    - dive
@@ -527,10 +542,15 @@ struct BikePark
 {
     //5 properties:
     //    - amount of tracks (int)
+    int amountTracks = 23;
     //    - hight of the mountain (meters) (float)
+    float hightMountain = 3400; //meters
     //    - number of lifts (int)
+    int numLifts = 5;
     //    - amount of black diamont tracks (int)
+    int amountBlackDiamontTracks = 10;
     //    - accidents per year (int)
+    int accidentsYear = 700;
     //3 things it can do:
     //    - ride downhill
     //    - eat lunch
@@ -555,10 +575,15 @@ struct Brakes
 {
     //5 properties:
     //    - 1) number pistons (int)
+    int numPistons = 4;
     //    - number screws (int)
+    int numScrews = 6;
     //    - hight of spacers (float)
+    float higthSpacer = 34.3f; //mm
     //    - number breaking pads (int)
+    int numBreakPads = 4;
     //    - maintenance interval (int)
+    int maintenanceInterval = 365; //days
     //3 things it can do:
     //    - slow down bike
     //    - block wheels
@@ -583,10 +608,15 @@ struct Pedals
 {
     //5 properties:
     //    - brand (std::string)
+    std::string brand = "RaceFace";
     //    - size (float)
+    int size = 10;
     //    - color (std::string)
+    std::string color = "black";
     //    - material (std::string)
+    std::string material = "titanium";
     //    - amount of torque (int)
+    int amountTorque = 15; //Nm
     //3 things it can do:
     //    - assemble
     //    - turn 
@@ -611,10 +641,15 @@ struct Suspension
 {
     //5 properties:
     //    - pressure (float)
+    float pressure = 80.0; //PSI
     //    - travel (int)
+    int travel = 170; //mm
     //    - stanchion diameter (int)
+    int stanchionDiameter = 38; //mm 
     //    - spring type (std::string)
+    std::string springType = "air";
     //    - damper type (std::string)
+    std::string damperType = "coil";
     //3 things it can do:
     //    - traction
     //    - dampen
@@ -639,10 +674,15 @@ struct Frame
 {
     //5 properties:
     //    - material (std::string)
+    std::string material = "carbon";
     //    - color (std::string)
+    std::string color = "black";
     //    - brand (std::string)
+    std::string brand = "YT Industries";
     //    - weight (float)
+    float weight = 5.4f; //kg
     //    - size (float)
+    float size = 634.0f; //mm
     //3 things it can do:
     //    - asseble
     //    - be painted
@@ -667,10 +707,15 @@ struct Handlebar
 {
     //5 properties:
     //    - brand (std::string)
+    std::string brand = "RaceFace";
     //    - clamp diameter (float)
+    float clampDiameter = 25.3f; //mm
     //    - rise (float)
+    float rise = 20.4f; //mm
     //    - color (std::string)
+    std::string color = "gold";
     //    - material (std::string)
+    std::string material = "carbon";
     //3 things it can do:
     //    - move bike to the right
     //    - move bike to the left
@@ -695,10 +740,15 @@ struct MountainBike
 {
     //5 properties:
     //    - Brakes
+    std::string brakes = "Sram";
     //    - Pedals
+    std::string pedals = "RaceFace";
     //    - Suspension
+    std::string suspension = "Fox";
     //    - Frame
+    std::string frame = "YT Industries";
     //    - Handlebar
+    std::string handlebar = "RaceFace";
     //3 things it can do:
     //    - crash into tree
     //    - make a bunny hop
