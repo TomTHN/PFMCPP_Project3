@@ -437,7 +437,14 @@ Thing 1) Bank
     1) withdraw money
     2) deposit money
     3) take out credit
+*/
 
+struct Bank
+{
+               
+};
+
+/*
 Thing 2) School
 5 properties:
     1) amount of class rooms (int)
@@ -449,7 +456,14 @@ Thing 2) School
     1) write good grades
     2) skip school
     3) eat lunch
+*/
 
+struct School
+{
+               
+};
+
+/*
 Thing 3) swimming pool
 5 properties:
     1) amount of pools (int)
@@ -461,7 +475,14 @@ Thing 3) swimming pool
     1) swim
     2) dive
     3) bathe in sun 
+*/
 
+struct SwimmingPool
+{
+               
+};
+
+/*
 Thing 4) bike park
 5 properties:
     1) amount of tracks (int)
@@ -473,8 +494,15 @@ Thing 4) bike park
     1) ride downhill
     2) eat lunch
     3) have good time
+*/
 
-Thing 5) Breaks
+struct BikePark
+{
+               
+};
+
+/*
+Thing 5) Brakes
 5 properties:
     1) number pistons (int)
     2) number screws (int)
@@ -485,7 +513,14 @@ Thing 5) Breaks
     1) slow down bike
     2) block wheels
     3) squeak
+*/
 
+struct Brakes
+{
+               
+};
+
+/*
 Thing 6) Pedals
 5 properties:
     1) brand (std::string)
@@ -497,10 +532,17 @@ Thing 6) Pedals
     1) assemble
     2) turn 
     3) accelerate bike
+*/
 
+struct Pedals
+{
+               
+};
+
+/*
 Thing 7) Suspension
 5 properties:
-    1) preassure (float)
+    1) pressure (float)
     2) travel (int)
     3) stanchion diameter (int)
     4) spring type (std::string)
@@ -509,7 +551,14 @@ Thing 7) Suspension
     1) traction
     2) dampen
     3) break
+*/
 
+struct Suspension
+{
+               
+};
+
+/*
 Thing 8) Frame
 5 properties:
     1) material (std::string)
@@ -521,7 +570,14 @@ Thing 8) Frame
     1) asseble
     2) be painted
     3) break
+*/
 
+struct Frame
+{
+               
+};
+
+/*
 Thing 9) Handlebar
 5 properties:
     1) brand (std::string)
@@ -533,10 +589,17 @@ Thing 9) Handlebar
     1) move bike to the right
     2) move bike to the left
     3) controlle the bike
+*/
 
+struct Handlebar
+{
+               
+};
+
+/*
 Thing 10) Mountain Bike
 5 properties:
-    1) Breaks
+    1) Brakes
     2) Pedals
     3) Suspension
     4) Frame
@@ -546,6 +609,11 @@ Thing 10) Mountain Bike
     2) make a bunny hop
     3) go uphill
 */
+
+struct MountainBike
+{
+               
+};
 
 /*
 =================
