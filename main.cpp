@@ -441,7 +441,16 @@ Thing 1) Bank
 
 struct Bank
 {
-               
+    //5 properties:
+    //    - number of ATMs (int)
+    //    - amount of employees (int)
+    //    - amount of security cameras (int)
+    //    - number of bank counters (int)
+    //    - number of customers per day (int)
+    //3 things it can do:
+    //    - withdraw money
+    //    - deposit money
+    //    - take out credit            
 };
 
 /*
@@ -460,7 +469,16 @@ Thing 2) School
 
 struct School
 {
-               
+    //5 properties:
+    //    - amount of class rooms (int)
+    //    - number of teachers (int)
+    //    - amount of time to take a break (float)
+    //    - overall grade point average of school (float)
+    //    - number of pupils (int)
+    //3 things it can do:
+    //    - write good grades
+    //    - skip school
+    //    - eat lunch         
 };
 
 /*
@@ -479,7 +497,16 @@ Thing 3) swimming pool
 
 struct SwimmingPool
 {
-               
+    //5 properties:
+    //    - amount of pools (int)
+    //    - maximum hight of diving board (meters) (float)
+    //    - length of the swimming lane (meters) (float)
+    //    - amount of water (cubic meter) (float)
+    //    - visitors per year (int)
+    //3 things it can do:
+    //    - swim
+    //    - dive
+    //    - bathe in sun          
 };
 
 /*
@@ -498,7 +525,16 @@ Thing 4) bike park
 
 struct BikePark
 {
-               
+    //5 properties:
+    //    - amount of tracks (int)
+    //    - hight of the mountain (meters) (float)
+    //    - number of lifts (int)
+    //    - amount of black diamont tracks (int)
+    //    - accidents per year (int)
+    //3 things it can do:
+    //    - ride downhill
+    //    - eat lunch
+    //    - have good time        
 };
 
 /*
@@ -517,7 +553,16 @@ Thing 5) Brakes
 
 struct Brakes
 {
-               
+    //5 properties:
+    //    - 1) number pistons (int)
+    //    - number screws (int)
+    //    - hight of spacers (float)
+    //    - number breaking pads (int)
+    //    - maintenance interval (int)
+    //3 things it can do:
+    //    - slow down bike
+    //    - block wheels
+    //    - squeak         
 };
 
 /*
@@ -536,7 +581,16 @@ Thing 6) Pedals
 
 struct Pedals
 {
-               
+    //5 properties:
+    //    - brand (std::string)
+    //    - size (float)
+    //    - color (std::string)
+    //    - material (std::string)
+    //    - amount of torque (int)
+    //3 things it can do:
+    //    - assemble
+    //    - turn 
+    //    - accelerate bike        
 };
 
 /*
@@ -555,7 +609,16 @@ Thing 7) Suspension
 
 struct Suspension
 {
-               
+    //5 properties:
+    //    - pressure (float)
+    //    - travel (int)
+    //    - stanchion diameter (int)
+    //    - spring type (std::string)
+    //    - damper type (std::string)
+    //3 things it can do:
+    //    - traction
+    //    - dampen
+    //    - break            
 };
 
 /*
@@ -574,7 +637,16 @@ Thing 8) Frame
 
 struct Frame
 {
-               
+    //5 properties:
+    //    - material (std::string)
+    //    - color (std::string)
+    //    - brand (std::string)
+    //    - weight (float)
+    //    - size (float)
+    //3 things it can do:
+    //    - asseble
+    //    - be painted
+    //    - break          
 };
 
 /*
@@ -593,7 +665,16 @@ Thing 9) Handlebar
 
 struct Handlebar
 {
-               
+    //5 properties:
+    //    - brand (std::string)
+    //    - clamp diameter (float)
+    //    - rise (float)
+    //    - color (std::string)
+    //    - material (std::string)
+    //3 things it can do:
+    //    - move bike to the right
+    //    - move bike to the left
+    //    - controlle the bike         
 };
 
 /*
@@ -612,7 +693,16 @@ Thing 10) Mountain Bike
 
 struct MountainBike
 {
-               
+    //5 properties:
+    //    - Brakes
+    //    - Pedals
+    //    - Suspension
+    //    - Frame
+    //    - Handlebar
+    //3 things it can do:
+    //    - crash into tree
+    //    - make a bunny hop
+    //    - go uphill          
 };
 
 /*
