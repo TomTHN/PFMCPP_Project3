@@ -116,13 +116,25 @@ struct Person
     float GPA;
     unsigned int SATScore;
     int distanceTraveled;
-    int leftFoot = 30; //mm foot size
-    int rightFoot = 30; //mm foot size
 
-    int stepSize();
-    void stepForward();
+    struct Limb
+    {
+        int size = 30;
+
+        int stepSize(int normalStep);
+        void stepForward();
+    };
+
+    Limb leftFoot;
+    Limb rightFoot;
+
     void run(int howFast, bool startWithLeftFoot);
 };
+
+int Person::Limb::stepSize(int normalStep)
+{
+    return normalStep;
+}
 
 void Person::run(int howFast, bool startWithLeftFoot)
 {
@@ -136,7 +148,7 @@ void Person::run(int howFast, bool startWithLeftFoot)
         rightFoot.stepForward();
         leftFoot.stepForward();
     }
-    distanceTraveled += leftFoot.stepSize() + rightfoot.stepSize();
+    distanceTraveled += leftFoot.stepSize(30) + rightFoot.stepSize(30);
 }
 
  /*
