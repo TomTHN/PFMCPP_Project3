@@ -119,8 +119,6 @@ struct Person
 
     struct Limb
     {
-        int size = 30;
-
         int stepSize(int normalStep);
         void stepForward();
     };
@@ -128,7 +126,7 @@ struct Person
     Limb leftFoot;
     Limb rightFoot;
 
-    void run(int howFast, bool startWithLeftFoot);
+    void run(int howManySteps, bool startWithLeftFoot);
 };
 
 int Person::Limb::stepSize(int normalStep)
@@ -136,19 +134,22 @@ int Person::Limb::stepSize(int normalStep)
     return normalStep;
 }
 
-void Person::run(int howFast, bool startWithLeftFoot)
+void Person::run(int howManySteps, bool startWithLeftFoot)
 {
-    if(startWithLeftFoot == true)
+    for(int steps = 0; steps < howManySteps; steps++)
     {
-        leftFoot.stepForward();
-        rightFoot.stepForward();
+        if(startWithLeftFoot == true)
+        {
+            leftFoot.stepForward();
+            rightFoot.stepForward();
+        }
+        else
+        {
+            rightFoot.stepForward();
+            leftFoot.stepForward();
+        }
+        distanceTraveled += leftFoot.stepSize(100) + rightFoot.stepSize(100);
     }
-    else
-    {
-        rightFoot.stepForward();
-        leftFoot.stepForward();
-    }
-    distanceTraveled += leftFoot.stepSize(30) + rightFoot.stepSize(30);
 }
 
  /*
