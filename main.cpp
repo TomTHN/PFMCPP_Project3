@@ -300,6 +300,12 @@ void SwimmingPool::dive(bool breathStatus)
     }
 }
 
+int SwimmingPool::bathInSun(bool useSunProtection, int startTime)
+{
+    useSunProtection = 30;
+    return startTime;
+}
+
 struct BikePark
 {
     int amountTracks = 23;
@@ -369,10 +375,30 @@ struct Brakes
     int numBreakPads = 4;
     int maintenanceInterval = 365; //days
 
-    float slowDownBike(float initialSpeed, float amountDeceleration); //returns updated speed
-    void blockWheels(float brakePower, int systemMass, float speed); 
+    float slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime); //returns updated speed
+    void blockWheels(); 
     bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
 };
+
+float Brakes::slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime)
+{
+    return initialSpeed - amountDeceleration * brakeTime;
+}
+
+void Brakes::blockWheels()
+{
+
+}
+
+bool Brakes::squeak(std::string weatherConditions)
+{
+    if(weatherConditions == "rain")
+    {
+        //squeak
+    }
+    
+    return true;
+}
 
 struct Pedals
 {
@@ -387,6 +413,21 @@ struct Pedals
     float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
 };
 
+void Pedals::assemble()
+{
+    
+}
+
+void Pedals::turn()
+{
+    
+}
+
+float Pedals::accelerateBike(float currentSpeed, float targedSpeed)
+{
+    return targedSpeed - currentSpeed;
+}
+
 struct Suspension
 {
     float pressure = 80.0; //PSI
@@ -400,18 +441,66 @@ struct Suspension
     bool breakSuspension(); //returns suspension status
 };
 
+void Suspension::traction(bool setupCorrect)
+{
+    if(setupCorrect)
+    {
+        
+    }
+}
+
+void Suspension::dampen(float impactForce)
+{
+    float impactMax = 100.0f;
+    if(impactForce < impactMax)
+    {
+        //Good
+    }
+    else
+    {
+        //Bad
+    }
+}
+
+bool Suspension::breakSuspension()
+{
+    return true;
+}
+
 struct Frame
 {
     std::string material = "carbon";
     std::string color = "black";
     std::string brand = "YT Industries";
-
     float weight = 5.4f; //kg
     float size = 634.0f; //mm
-    void assemble(std::string nextTask); 
+
+    void assemble(); 
     void bePainted(std::string color);
     bool breakFrame(); //returns frame status
 };
+
+void Frame::assemble()
+{
+    
+}
+
+void Frame::bePainted(std::string newColor)
+{
+    if(newColor == "Red")
+    {
+        //paint red
+    }
+    else
+    {
+        std::cout << "Color not available!";
+    }
+}
+
+bool Frame::breakFrame()
+{
+    return false;
+}
 
 struct Handlebar
 {
@@ -426,6 +515,28 @@ struct Handlebar
     bool controlleBike(float speedAngleChange);// returns controlle status 
 };
 
+float Handlebar::moveBikeRight(float initSteeringAngle)
+{
+    float moveRightAngel = 90.0f;
+    return moveRightAngel - initSteeringAngle;
+}
+
+float Handlebar::moveBikeLeft(float initSteeringAngle)
+{
+    float moveLeftAngel = 90.0f;
+    return moveLeftAngel - initSteeringAngle;
+}
+
+bool Handlebar::controlleBike(float speedAngleChange)
+{
+    float criticalAngleChange = 20.4f;
+    if(speedAngleChange < criticalAngleChange)
+    {
+        return true;
+    }
+    return false;
+}
+
 struct MountainBike
 {
     Brakes brakes;
@@ -435,9 +546,32 @@ struct MountainBike
     Handlebar handlebar;
 
     void crashTree(bool brakesStatus, Handlebar handlebar);
-    void bunnyHop(Suspension suspension, int jumpHight);    
+    void bunnyHop(Suspension suspension);    
     void goUphill(Pedals pedals, Handlebar handlebar, float slope);
 };
+
+void MountainBike::crashTree(bool brakesStatus, Handlebar handlebarCrash)
+{
+    if(brakesStatus && handlebarCrash.controlleBike(15.0f))
+    {
+        //Good
+    }
+}
+
+void MountainBike::bunnyHop(Suspension suspensionHop)
+{
+    suspensionHop.breakSuspension();
+}
+
+void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, float slope)
+{
+    handlebarUphill.controlleBike(15.0f);
+    pedalsUphill.accelerateBike(10.0f, 12.0f);
+    if(slope > 10.5f)
+    {
+        std::cout << "too steep";
+    }
+}
 
 int main()
 {
