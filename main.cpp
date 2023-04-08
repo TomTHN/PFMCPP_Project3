@@ -134,6 +134,11 @@ int Person::Limb::stepSize(int normalStep)
     return normalStep;
 }
 
+void Person::Limb::stepForward()
+{
+    
+}
+
 void Person::run(int howManySteps, bool startWithLeftFoot)
 {
     for(int steps = 0; steps < howManySteps; steps++)
@@ -188,17 +193,51 @@ struct Bank
         float bankBalance = 4550.60f;
         int memberTime  = 600; //days
 
-        void cancelBankAccount(int customerNumber);
-        void talkEmployee(std::string question);
-        void robBank(int bankBalance = 0);
+        void cancelBankAccount();
+        std::string talkEmployee(std::string question);
+        void robBank();
     };
 
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
-    float takeCredit(Customer customer, float amountCredit, int periodToRepay); //returns interest rate
+    float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
 
-    Customer Peter;
+    Customer peter;
 };
+
+void Bank::Customer::cancelBankAccount()
+{
+    
+}
+
+std::string Bank::Customer::talkEmployee(std::string question)
+{
+    return question;
+}
+
+void Bank::Customer::robBank()
+{
+    if(bankBalance < 0)
+    {
+        
+    }
+}
+
+float Bank::withdrawMoney(Customer customer, float moneyToWithdraw)
+{
+    return customer.bankBalance -= moneyToWithdraw;
+}
+
+float Bank::depositMoney(Customer customer, float moneyToDeposit)
+{
+    return customer.bankBalance -= moneyToDeposit;
+}
+
+float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepay)
+{
+    customer.bankBalance += amountCredit;
+    return amountCredit/periodToRepay;
+}
 
 struct School
 {
@@ -210,8 +249,23 @@ struct School
 
     void writeGoodGrades();
     void skipSchool(); 
-    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
+    bool eatLunch(); //returns false if person is still hungry 
 };
+
+void School::writeGoodGrades()
+{
+    
+}
+
+void School::skipSchool()
+{
+    
+}
+
+bool School::eatLunch()
+{
+    return true;
+}
 
 struct SwimmingPool
 {
@@ -225,6 +279,26 @@ struct SwimmingPool
     void dive(bool breathStatus);         
     int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
 };
+
+void SwimmingPool::swim(std::string direction)
+{
+    if(direction == "right")
+    {
+        //go right
+    }
+    else
+    {
+        //go left
+    }
+}
+
+void SwimmingPool::dive(bool breathStatus)
+{
+    while(breathStatus)
+    {
+            
+    }
+}
 
 struct BikePark
 {
@@ -241,18 +315,51 @@ struct BikePark
             std::string color = "red";
             float wheelSize = 27.5f;
             float ageBike = 4.5f;
-    
-            float inflateTires(float targetPressure); //Returns updated pressure 
-            void setupSuspension(float targetPressure, float targetSag);
-            void repair(std::string brokenComponent);
+            float pressureSuspension = 95.4f;
+            int sag = 15;
+
+            float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
+            int setupSuspension(float targetPressure, int targetSag);
+            void repair();
         };
 
-    void rideDownhill(Bike bike, std::string track);
-    bool eatLunch(std::string whatEat); //returns false if person is still hungry     
+    void rideDownhill();
+    bool eatLunch(); //returns false if person is still hungry     
     void haveGoodTime();
 
     Bike firstBike;
 };
+
+float BikePark::Bike::inflateTires(float targetPressureTire, float currentPressur)
+{
+    return targetPressureTire - currentPressur;
+}
+
+int BikePark::Bike::setupSuspension(float targetPressure, int targetSag)
+{
+    pressureSuspension = targetPressure;
+    return targetSag - sag;
+}
+
+void BikePark::Bike::repair()
+{
+    
+}
+
+void BikePark::rideDownhill()
+{
+    
+}
+
+bool BikePark::eatLunch()
+{
+    return true;
+}
+
+void BikePark::haveGoodTime()
+{
+    
+}
 
 struct Brakes
 {
