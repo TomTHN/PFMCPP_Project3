@@ -225,12 +225,14 @@ void Bank::Customer::robBank()
 
 float Bank::withdrawMoney(Customer customer, float moneyToWithdraw)
 {
-    return customer.bankBalance -= moneyToWithdraw;
+    float updatedBankBalance = customer.bankBalance - moneyToWithdraw;
+    return updatedBankBalance;
 }
 
 float Bank::depositMoney(Customer customer, float moneyToDeposit)
 {
-    return customer.bankBalance -= moneyToDeposit;
+    float updatedBankBalance = customer.bankBalance + moneyToDeposit;
+    return updatedBankBalance;
 }
 
 float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepay)
