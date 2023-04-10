@@ -108,9 +108,54 @@ struct CarWash
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
 
+    struct Limb
+    {
+        int stepSize(int normalStep);
+        void stepForward();
+    };
 
+    Limb leftFoot;
+    Limb rightFoot;
 
+    void run(int howManySteps, bool startWithLeftFoot);
+};
+
+int Person::Limb::stepSize(int normalStep)
+{
+    return normalStep;
+}
+
+void Person::Limb::stepForward()
+{
+    
+}
+
+void Person::run(int howManySteps, bool startWithLeftFoot)
+{
+    for(int steps = 0; steps < howManySteps; steps++)
+    {
+        if(startWithLeftFoot == true)
+        {
+            leftFoot.stepForward();
+            rightFoot.stepForward();
+        }
+        else
+        {
+            rightFoot.stepForward();
+            leftFoot.stepForward();
+        }
+        distanceTraveled += leftFoot.stepSize(100) + rightFoot.stepSize(100);
+    }
+}
 
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
@@ -148,17 +193,53 @@ struct Bank
         float bankBalance = 4550.60f;
         int memberTime  = 600; //days
 
-        void cancelBankAccount(int customerNumber);
-        void talkEmployee(std::string question);
-        void robBank(int bankBalance = 0);
+        void cancelBankAccount();
+        std::string talkEmployee(std::string question);
+        void robBank();
     };
 
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
-    float takeCredit(Customer customer, float amountCredit, int periodToRepay); //returns interest rate
+    float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
 
-    Customer Peter;
+    Customer peter;
 };
+
+void Bank::Customer::cancelBankAccount()
+{
+    
+}
+
+std::string Bank::Customer::talkEmployee(std::string question)
+{
+    return question;
+}
+
+void Bank::Customer::robBank()
+{
+    if(bankBalance < 0)
+    {
+        
+    }
+}
+
+float Bank::withdrawMoney(Customer customer, float moneyToWithdraw)
+{
+    float updatedBankBalance = customer.bankBalance - moneyToWithdraw;
+    return updatedBankBalance;
+}
+
+float Bank::depositMoney(Customer customer, float moneyToDeposit)
+{
+    float updatedBankBalance = customer.bankBalance + moneyToDeposit;
+    return updatedBankBalance;
+}
+
+float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepay)
+{
+    customer.bankBalance += amountCredit;
+    return amountCredit/periodToRepay;
+}
 
 struct School
 {
@@ -170,8 +251,23 @@ struct School
 
     void writeGoodGrades();
     void skipSchool(); 
-    bool eatLunch(std::string whatEat); //returns false if person is still hungry 
+    bool eatLunch(); //returns false if person is still hungry 
 };
+
+void School::writeGoodGrades()
+{
+    
+}
+
+void School::skipSchool()
+{
+    
+}
+
+bool School::eatLunch()
+{
+    return true;
+}
 
 struct SwimmingPool
 {
@@ -185,6 +281,32 @@ struct SwimmingPool
     void dive(bool breathStatus);         
     int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
 };
+
+void SwimmingPool::swim(std::string direction)
+{
+    if(direction == "right")
+    {
+        //go right
+    }
+    else
+    {
+        //go left
+    }
+}
+
+void SwimmingPool::dive(bool breathStatus)
+{
+    while(breathStatus)
+    {
+            
+    }
+}
+
+int SwimmingPool::bathInSun(bool useSunProtection, int startTime)
+{
+    useSunProtection = 30;
+    return startTime;
+}
 
 struct BikePark
 {
@@ -201,18 +323,51 @@ struct BikePark
             std::string color = "red";
             float wheelSize = 27.5f;
             float ageBike = 4.5f;
-    
-            float inflateTires(float targetPressure); //Returns updated pressure 
-            void setupSuspension(float targetPressure, float targetSag);
-            void repair(std::string brokenComponent);
+            float pressureSuspension = 95.4f;
+            int sag = 15;
+
+            float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
+            int setupSuspension(float targetPressure, int targetSag);
+            void repair();
         };
 
-    void rideDownhill(Bike bike, std::string track);
-    bool eatLunch(std::string whatEat); //returns false if person is still hungry     
+    void rideDownhill();
+    bool eatLunch(); //returns false if person is still hungry     
     void haveGoodTime();
 
     Bike firstBike;
 };
+
+float BikePark::Bike::inflateTires(float targetPressureTire, float currentPressur)
+{
+    return targetPressureTire - currentPressur;
+}
+
+int BikePark::Bike::setupSuspension(float targetPressure, int targetSag)
+{
+    pressureSuspension = targetPressure;
+    return targetSag - sag;
+}
+
+void BikePark::Bike::repair()
+{
+    
+}
+
+void BikePark::rideDownhill()
+{
+    
+}
+
+bool BikePark::eatLunch()
+{
+    return true;
+}
+
+void BikePark::haveGoodTime()
+{
+    
+}
 
 struct Brakes
 {
@@ -222,10 +377,30 @@ struct Brakes
     int numBreakPads = 4;
     int maintenanceInterval = 365; //days
 
-    float slowDownBike(float initialSpeed, float amountDeceleration); //returns updated speed
-    void blockWheels(float brakePower, int systemMass, float speed); 
+    float slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime); //returns updated speed
+    void blockWheels(); 
     bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
 };
+
+float Brakes::slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime)
+{
+    return initialSpeed - amountDeceleration * brakeTime;
+}
+
+void Brakes::blockWheels()
+{
+
+}
+
+bool Brakes::squeak(std::string weatherConditions)
+{
+    if(weatherConditions == "rain")
+    {
+        //squeak
+    }
+    
+    return true;
+}
 
 struct Pedals
 {
@@ -240,6 +415,21 @@ struct Pedals
     float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
 };
 
+void Pedals::assemble()
+{
+    
+}
+
+void Pedals::turn()
+{
+    
+}
+
+float Pedals::accelerateBike(float currentSpeed, float targedSpeed)
+{
+    return targedSpeed - currentSpeed;
+}
+
 struct Suspension
 {
     float pressure = 80.0; //PSI
@@ -253,18 +443,66 @@ struct Suspension
     bool breakSuspension(); //returns suspension status
 };
 
+void Suspension::traction(bool setupCorrect)
+{
+    if(setupCorrect)
+    {
+        
+    }
+}
+
+void Suspension::dampen(float impactForce)
+{
+    float impactMax = 100.0f;
+    if(impactForce < impactMax)
+    {
+        //Good
+    }
+    else
+    {
+        //Bad
+    }
+}
+
+bool Suspension::breakSuspension()
+{
+    return true;
+}
+
 struct Frame
 {
     std::string material = "carbon";
     std::string color = "black";
     std::string brand = "YT Industries";
-
     float weight = 5.4f; //kg
     float size = 634.0f; //mm
-    void assemble(std::string nextTask); 
+
+    void assemble(); 
     void bePainted(std::string color);
     bool breakFrame(); //returns frame status
 };
+
+void Frame::assemble()
+{
+    
+}
+
+void Frame::bePainted(std::string newColor)
+{
+    if(newColor == "Red")
+    {
+        //paint red
+    }
+    else
+    {
+        std::cout << "Color not available!";
+    }
+}
+
+bool Frame::breakFrame()
+{
+    return false;
+}
 
 struct Handlebar
 {
@@ -279,6 +517,28 @@ struct Handlebar
     bool controlleBike(float speedAngleChange);// returns controlle status 
 };
 
+float Handlebar::moveBikeRight(float initSteeringAngle)
+{
+    float moveRightAngel = 90.0f;
+    return moveRightAngel - initSteeringAngle;
+}
+
+float Handlebar::moveBikeLeft(float initSteeringAngle)
+{
+    float moveLeftAngel = 90.0f;
+    return moveLeftAngel - initSteeringAngle;
+}
+
+bool Handlebar::controlleBike(float speedAngleChange)
+{
+    float criticalAngleChange = 20.4f;
+    if(speedAngleChange < criticalAngleChange)
+    {
+        return true;
+    }
+    return false;
+}
+
 struct MountainBike
 {
     Brakes brakes;
@@ -288,9 +548,32 @@ struct MountainBike
     Handlebar handlebar;
 
     void crashTree(bool brakesStatus, Handlebar handlebar);
-    void bunnyHop(Suspension suspension, int jumpHight);    
+    void bunnyHop(Suspension suspension);    
     void goUphill(Pedals pedals, Handlebar handlebar, float slope);
 };
+
+void MountainBike::crashTree(bool brakesStatus, Handlebar handlebarCrash)
+{
+    if(brakesStatus && handlebarCrash.controlleBike(15.0f))
+    {
+        //Good
+    }
+}
+
+void MountainBike::bunnyHop(Suspension suspensionHop)
+{
+    suspensionHop.breakSuspension();
+}
+
+void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, float slope)
+{
+    handlebarUphill.controlleBike(15.0f);
+    pedalsUphill.accelerateBike(10.0f, 12.0f);
+    if(slope > 10.5f)
+    {
+        std::cout << "too steep";
+    }
+}
 
 int main()
 {
