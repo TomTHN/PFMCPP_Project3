@@ -70,12 +70,10 @@ int main()
 
 //insert Example::main() into main() of user's repo.
 
-
-
-
-
 struct Bank
 {
+    Bank();
+
     int numATM = 3;
     int amountEmployees = 20;
     int amountSecurityCameras = 5;
@@ -84,6 +82,8 @@ struct Bank
 
     struct Customer
     {
+        Customer();
+
         int customerNumber = 12345678;
         int age = 45;
         std::string gender = "male";
@@ -101,6 +101,16 @@ struct Bank
 
     Customer peter;
 };
+
+Bank::Bank()
+{
+    std::cout << "Bank being constructed!" << std::endl;
+}
+
+Bank::Customer::Customer()
+{
+    std::cout << "Bank::Customer being constructed!" << std::endl;
+}
 
 void Bank::Customer::cancelBankAccount()
 {
@@ -140,6 +150,8 @@ float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepa
 
 struct School
 {
+    School();
+
     int amountClassRooms = 25;
     int numTeachers = 50; 
     float amountBreakTime = 30.0f; //minutes
@@ -150,6 +162,11 @@ struct School
     void skipSchool(); 
     bool eatLunch(); //returns false if person is still hungry 
 };
+
+School::School()
+{
+    std::cout << "School being constructed!" << std::endl;
+}
 
 void School::writeGoodGrades()
 {
@@ -168,6 +185,8 @@ bool School::eatLunch()
 
 struct SwimmingPool
 {
+    SwimmingPool();
+
     int amountPools = 4;
     float maxHightDivingBoard = 10.0f; //meters
     float lengthSwimminglane = 50.0; //meters
@@ -178,6 +197,11 @@ struct SwimmingPool
     void dive(bool breathStatus);         
     int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
 };
+
+SwimmingPool::SwimmingPool()
+{
+    std::cout << "SwimmingPool being constructed!" << std::endl;
+}
 
 void SwimmingPool::swim(std::string direction)
 {
@@ -207,6 +231,8 @@ int SwimmingPool::bathInSun(bool useSunProtection, int startTime)
 
 struct BikePark
 {
+    BikePark();
+
     int amountTracks = 23;
     float hightMountain = 3400; //meters
     int numLifts = 5;
@@ -214,19 +240,21 @@ struct BikePark
     int accidentsYear = 700;
     
     struct Bike
-        {
-            bool hasFullSuspension = true;
-            std::string brand = "GT";
-            std::string color = "red";
-            float wheelSize = 27.5f;
-            float ageBike = 4.5f;
-            float pressureSuspension = 95.4f;
-            int sag = 15;
+    {
+        Bike();
 
-            float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
-            int setupSuspension(float targetPressure, int targetSag);
-            void repair();
-        };
+        bool hasFullSuspension = true;
+        std::string brand = "GT";
+        std::string color = "red";
+        float wheelSize = 27.5f;
+        float ageBike = 4.5f;
+        float pressureSuspension = 95.4f;
+        int sag = 15;
+
+        float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
+        int setupSuspension(float targetPressure, int targetSag);
+        void repair();
+    };
 
     void rideDownhill();
     bool eatLunch(); //returns false if person is still hungry     
@@ -234,6 +262,16 @@ struct BikePark
 
     Bike firstBike;
 };
+
+BikePark::BikePark()
+{
+    std::cout << "BikePark being constructed!" << std::endl;
+}
+
+BikePark::Bike::Bike()
+{
+    std::cout << "BikePark::Bike being constructed!" << std::endl;
+}
 
 float BikePark::Bike::inflateTires(float targetPressureTire, float currentPressur)
 {
@@ -268,6 +306,8 @@ void BikePark::haveGoodTime()
 
 struct Brakes
 {
+    Brakes();
+
     int numPistons = 4;
     int numScrews = 6;
     float higthSpacer = 34.3f; //mm
@@ -278,6 +318,11 @@ struct Brakes
     void blockWheels(); 
     bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
 };
+
+Brakes::Brakes()
+{
+    std::cout << "Brakes being constructed!" << std::endl;
+}
 
 float Brakes::slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime)
 {
@@ -301,6 +346,8 @@ bool Brakes::squeak(std::string weatherConditions)
 
 struct Pedals
 {
+    Pedals();
+
     std::string brand = "RaceFace";
     int size = 10;
     std::string color = "black";
@@ -311,6 +358,11 @@ struct Pedals
     void turn();
     float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
 };
+
+Pedals::Pedals()
+{
+    std::cout << "Pedals being constructed!" << std::endl;
+}
 
 void Pedals::assemble()
 {
@@ -329,6 +381,8 @@ float Pedals::accelerateBike(float currentSpeed, float targedSpeed)
 
 struct Suspension
 {
+    Suspension();
+
     float pressure = 80.0; //PSI
     int travel = 170; //mm
     int stanchionDiameter = 38; //mm 
@@ -339,6 +393,11 @@ struct Suspension
     void dampen(float impactForce);   
     bool breakSuspension(); //returns suspension status
 };
+
+Suspension::Suspension()
+{
+    std::cout << "Suspension being constructed!" << std::endl;
+}
 
 void Suspension::traction(bool setupCorrect)
 {
@@ -368,6 +427,8 @@ bool Suspension::breakSuspension()
 
 struct Frame
 {
+    Frame();
+
     std::string material = "carbon";
     std::string color = "black";
     std::string brand = "YT Industries";
@@ -378,6 +439,11 @@ struct Frame
     void bePainted(std::string color);
     bool breakFrame(); //returns frame status
 };
+
+Frame::Frame()
+{
+    std::cout << "Frame being constructed!" << std::endl;
+}
 
 void Frame::assemble()
 {
@@ -403,6 +469,8 @@ bool Frame::breakFrame()
 
 struct Handlebar
 {
+    Handlebar();
+
     std::string brand = "RaceFace";
     float clampDiameter = 25.3f; //mm
     float rise = 20.4f; //mm
@@ -413,6 +481,11 @@ struct Handlebar
     float moveBikeLeft(float initSteeringAngle); //returns updated angle
     bool controlleBike(float speedAngleChange);// returns controlle status 
 };
+
+Handlebar::Handlebar()
+{
+    std::cout << "Handlebar being constructed!" << std::endl;
+}
 
 float Handlebar::moveBikeRight(float initSteeringAngle)
 {
@@ -438,6 +511,8 @@ bool Handlebar::controlleBike(float speedAngleChange)
 
 struct MountainBike
 {
+    MountainBike();
+
     Brakes brakes;
     Pedals pedals;
     Suspension suspesion;
@@ -448,6 +523,11 @@ struct MountainBike
     void bunnyHop(Suspension suspension);    
     void goUphill(Pedals pedals, Handlebar handlebar, float slope);
 };
+
+MountainBike::MountainBike()
+{
+    std::cout << "MountainBike being constructed!" << std::endl;
+}
 
 void MountainBike::crashTree(bool brakesStatus, Handlebar handlebarCrash)
 {
