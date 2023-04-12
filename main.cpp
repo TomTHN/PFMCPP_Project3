@@ -98,8 +98,6 @@ struct Bank
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
     float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
-
-    //Customer peter;
 };
 
 Bank::Bank()
@@ -201,7 +199,7 @@ struct SwimmingPool
 
     void swim(std::string direction);
     void dive(bool breathStatus);         
-    int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
+    int bathInSun(bool useSunProtection, int targetTime = 30); //returns endTime
 };
 
 SwimmingPool::SwimmingPool()
@@ -213,7 +211,7 @@ void SwimmingPool::swim(std::string direction)
 {
     if(direction == "right")
     {
-        std::cout << "I swim to the right!" << std::endl;
+        std::cout << "I´m swimming to the right!" << std::endl;
     }
     else
     {
@@ -229,10 +227,14 @@ void SwimmingPool::dive(bool breathStatus)
     }
 }
 
-int SwimmingPool::bathInSun(bool useSunProtection, int startTime)
-{
-    useSunProtection = 30;
-    return startTime;
+int SwimmingPool::bathInSun(bool useSunProtection, int targetTime)
+{    
+    if(useSunProtection && (targetTime < 60))
+    {
+        std::cout << "You are protected!" << std::endl;
+    }    
+    
+    return targetTime;
 }
 
 struct BikePark
@@ -362,7 +364,7 @@ struct Pedals
 
     void assemble();
     void turn();
-    float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
+    float accelerateBike(float currentSpeed, float targetSpeed); // returns updated speed
 };
 
 Pedals::Pedals()
@@ -380,9 +382,9 @@ void Pedals::turn()
     
 }
 
-float Pedals::accelerateBike(float currentSpeed, float targedSpeed)
+float Pedals::accelerateBike(float currentSpeed, float targetSpeed)
 {
-    return targedSpeed - currentSpeed;
+    return targetSpeed - currentSpeed;
 }
 
 struct Suspension
@@ -464,7 +466,7 @@ void Frame::bePainted(std::string newColor)
     }
     else
     {
-        std::cout << "Color not available!";
+        std::cout << "Color not available!" << std::endl;
     }
 }
 
@@ -526,7 +528,7 @@ struct MountainBike
     Handlebar handlebar;
 
     void crashTree(bool brakesStatus, Handlebar handlebar);
-    void bunnyHop(Suspension suspension);    
+    void bunnyHop(int jumpHight);    
     void goUphill(Pedals pedals, Handlebar handlebar, float slope);
 };
 
@@ -543,9 +545,9 @@ void MountainBike::crashTree(bool brakesStatus, Handlebar handlebarCrash)
     }
 }
 
-void MountainBike::bunnyHop(Suspension suspensionHop)
+void MountainBike::bunnyHop(int jumpHight)
 {
-    suspensionHop.breakSuspension();
+    std::cout << "You jumped " << jumpHight << "cm!" << std::endl;
 }
 
 void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, float slope)
@@ -554,7 +556,7 @@ void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, floa
     pedalsUphill.accelerateBike(10.0f, 12.0f);
     if(slope > 10.5f)
     {
-        std::cout << "too steep";
+        std::cout << "too steep!" << std::endl;
     }
 }
 
@@ -570,10 +572,11 @@ int main()
     BikePark::Bike newBike;
     Brakes newBrakes;
     Pedals newPedals;
-    Suspension newsSuspesion;
+    Suspension newSuspesion;
     Frame newFrame;
     Handlebar newHandlebar;
     MountainBike newMountainBike;
+    std::cout << std::endl;
     
     newBank.depositMoney(tom, 2000.50f);
     newBank.withdrawMoney(tom, 500.0f);
@@ -589,6 +592,39 @@ int main()
     newPool.dive(false);
     newPool.swim("right");
 
+    newBikePark.eatLunch();
+    newBikePark.haveGoodTime();
+    newBikePark.rideDownhill();
+
+    newBike.inflateTires(27.0f, 20.0f);
+    newBike.repair();
+    newBike.setupSuspension(95.4f, 25);
+
+    newBrakes.blockWheels();
+    newBrakes.slowDownBike(10, 2.5f, 10.5f);
+    newBrakes.squeak("rain");
+
+    float accelerateBikeReturn = newPedals.accelerateBike(8.5f, 15.0f);
+    newPedals.assemble();
+    newPedals.turn();
+
+    newSuspesion.breakSuspension();
+    newSuspesion.dampen(555.5);
+    newSuspesion.traction(true);
+
+    newFrame.assemble();
+    newFrame.bePainted("Red");
+    newFrame.breakFrame();
+
+    newHandlebar.controlleBike(5.6f);
+    newHandlebar.moveBikeLeft(80.4f);
+    newHandlebar.moveBikeRight(75.3f);
+
+    newMountainBike.bunnyHop(30);
+    newMountainBike.crashTree(false, newHandlebar);
+    newMountainBike.goUphill(newPedals, newHandlebar, 30.1f);
+
+    std::cout << "You need to drive " << accelerateBikeReturn << " km/h faster!" << std::endl;
     
     std::cout << "good to go!" << std::endl;
 }
