@@ -90,21 +90,21 @@ struct Bank
         float bankBalance = 4550.60f;
         int memberTime  = 600; //days
 
-        void cancelBankAccount();
+        void cancelBankAccount(bool state);
         std::string talkEmployee(std::string question);
-        void robBank();
+        void robBank(bool decision);
     };
 
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
     float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
 
-    Customer peter;
+    //Customer peter;
 };
 
 Bank::Bank()
 {
-    std::cout << "Bank being constructed!" << std::endl;
+    std::cout << std::endl << "Bank being constructed!" << std::endl;
 }
 
 Bank::Customer::Customer()
@@ -112,40 +112,46 @@ Bank::Customer::Customer()
     std::cout << "Bank::Customer being constructed!" << std::endl;
 }
 
-void Bank::Customer::cancelBankAccount()
+void Bank::Customer::cancelBankAccount(bool state)
 {
-    
+    if(state)
+    {
+        std::cout << "I want to cancel my bank account!" << std::endl;
+    }
 }
 
 std::string Bank::Customer::talkEmployee(std::string question)
 {
+    std::cout << question << std::endl;
     return question;
 }
 
-void Bank::Customer::robBank()
+void Bank::Customer::robBank(bool desicion)
 {
-    if(bankBalance < 0)
+    if(desicion)
     {
-        
+        std::cout << "Ladies and gentlemen, this is a robbery!" << std::endl;
     }
 }
 
 float Bank::withdrawMoney(Customer customer, float moneyToWithdraw)
 {
     float updatedBankBalance = customer.bankBalance - moneyToWithdraw;
+    std::cout << "Your new bank balance is: " << updatedBankBalance << "."  << std::endl;
     return updatedBankBalance;
 }
 
 float Bank::depositMoney(Customer customer, float moneyToDeposit)
 {
     float updatedBankBalance = customer.bankBalance + moneyToDeposit;
+    std::cout << "Your new bank balance is: " << updatedBankBalance << "." << std::endl;
     return updatedBankBalance;
 }
 
 float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepay)
 {
     customer.bankBalance += amountCredit;
-    return amountCredit/periodToRepay;
+    return amountCredit / periodToRepay;
 }
 
 struct School
@@ -158,8 +164,8 @@ struct School
     float overallGradePointAverageSchool = 2.4f;
     int numPupils = 630;
 
-    void writeGoodGrades();
-    void skipSchool(); 
+    void writeGoodGrades(float mathGrade);
+    void skipSchool(bool wantSkipSchool); 
     bool eatLunch(); //returns false if person is still hungry 
 };
 
@@ -168,14 +174,14 @@ School::School()
     std::cout << "School being constructed!" << std::endl;
 }
 
-void School::writeGoodGrades()
+void School::writeGoodGrades(float mathGrade)
 {
-    
+    std::cout << "Your grade in math is " << mathGrade << "." << std::endl;
 }
 
-void School::skipSchool()
+void School::skipSchool(bool wantSkipSchool)
 {
-    
+    std::cout << (wantSkipSchool == true ? "skip!" : "don´t skip!") << std::endl;
 }
 
 bool School::eatLunch()
@@ -207,7 +213,7 @@ void SwimmingPool::swim(std::string direction)
 {
     if(direction == "right")
     {
-        //go right
+        std::cout << "I swim to the right!" << std::endl;
     }
     else
     {
@@ -555,7 +561,34 @@ void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, floa
 int main()
 {
     Example::main();
+
+    Bank newBank;
+    Bank::Customer tom;
+    School newSchool;
+    SwimmingPool newPool;
+    BikePark newBikePark;
+    BikePark::Bike newBike;
+    Brakes newBrakes;
+    Pedals newPedals;
+    Suspension newsSuspesion;
+    Frame newFrame;
+    Handlebar newHandlebar;
+    MountainBike newMountainBike;
     
+    newBank.depositMoney(tom, 2000.50f);
+    newBank.withdrawMoney(tom, 500.0f);
+    tom.cancelBankAccount(false);
+    tom.talkEmployee("I need to talk to your boss");
+    tom.robBank(true);
+
+    newSchool.writeGoodGrades(1.5f);
+    newSchool.skipSchool(true);
+    newSchool.eatLunch();
+
+    newPool.bathInSun(true);
+    newPool.dive(false);
+    newPool.swim("right");
+
     
     std::cout << "good to go!" << std::endl;
 }
