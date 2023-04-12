@@ -70,12 +70,10 @@ int main()
 
 //insert Example::main() into main() of user's repo.
 
-
-
-
-
 struct Bank
 {
+    Bank();
+
     int numATM = 3;
     int amountEmployees = 20;
     int amountSecurityCameras = 5;
@@ -84,81 +82,104 @@ struct Bank
 
     struct Customer
     {
+        Customer();
+
         int customerNumber = 12345678;
         int age = 45;
         std::string gender = "male";
         float bankBalance = 4550.60f;
         int memberTime  = 600; //days
 
-        void cancelBankAccount();
+        void cancelBankAccount(bool state);
         std::string talkEmployee(std::string question);
-        void robBank();
+        void robBank(bool decision);
     };
 
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
     float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
-
-    Customer peter;
 };
 
-void Bank::Customer::cancelBankAccount()
+Bank::Bank()
 {
-    
+    std::cout << std::endl << "Bank being constructed!" << std::endl;
+}
+
+Bank::Customer::Customer()
+{
+    std::cout << "Bank::Customer being constructed!" << std::endl;
+}
+
+void Bank::Customer::cancelBankAccount(bool state)
+{
+    if(state)
+    {
+        std::cout << "I want to cancel my bank account!" << std::endl;
+    }
 }
 
 std::string Bank::Customer::talkEmployee(std::string question)
 {
+    std::cout << question << std::endl;
     return question;
 }
 
-void Bank::Customer::robBank()
+void Bank::Customer::robBank(bool desicion)
 {
-    if(bankBalance < 0)
+    if(desicion)
     {
-        
+        std::cout << "Ladies and gentlemen, this is a robbery!" << std::endl;
     }
 }
 
 float Bank::withdrawMoney(Customer customer, float moneyToWithdraw)
 {
     float updatedBankBalance = customer.bankBalance - moneyToWithdraw;
+    std::cout << "Your new bank balance is: " << updatedBankBalance << "."  << std::endl;
     return updatedBankBalance;
 }
 
 float Bank::depositMoney(Customer customer, float moneyToDeposit)
 {
     float updatedBankBalance = customer.bankBalance + moneyToDeposit;
+    std::cout << "Your new bank balance is: " << updatedBankBalance << "." << std::endl;
     return updatedBankBalance;
 }
 
 float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepay)
 {
     customer.bankBalance += amountCredit;
-    return amountCredit/periodToRepay;
+    return amountCredit / periodToRepay;
 }
 
 struct School
 {
+    School();
+
     int amountClassRooms = 25;
     int numTeachers = 50; 
     float amountBreakTime = 30.0f; //minutes
     float overallGradePointAverageSchool = 2.4f;
     int numPupils = 630;
 
-    void writeGoodGrades();
-    void skipSchool(); 
+    void writeGoodGrades(float mathGrade);
+    void skipSchool(bool wantSkipSchool); 
     bool eatLunch(); //returns false if person is still hungry 
 };
 
-void School::writeGoodGrades()
+School::School()
 {
-    
+    std::cout << "School being constructed!" << std::endl;
 }
 
-void School::skipSchool()
+void School::writeGoodGrades(float mathGrade)
 {
-    
+    std::cout << "Your grade in math is " << mathGrade << "." << std::endl;
+}
+
+void School::skipSchool(bool wantSkipSchool)
+{
+    std::cout << (wantSkipSchool == true ? "skip!" : "don´t skip!") << std::endl;
 }
 
 bool School::eatLunch()
@@ -168,6 +189,8 @@ bool School::eatLunch()
 
 struct SwimmingPool
 {
+    SwimmingPool();
+
     int amountPools = 4;
     float maxHightDivingBoard = 10.0f; //meters
     float lengthSwimminglane = 50.0; //meters
@@ -176,14 +199,19 @@ struct SwimmingPool
 
     void swim(std::string direction);
     void dive(bool breathStatus);         
-    int bathInSun(bool useSunProtection, int startTime = 0); //returns endTime
+    int bathInSun(bool useSunProtection, int targetTime = 30); //returns endTime
 };
+
+SwimmingPool::SwimmingPool()
+{
+    std::cout << "SwimmingPool being constructed!" << std::endl;
+}
 
 void SwimmingPool::swim(std::string direction)
 {
     if(direction == "right")
     {
-        //go right
+        std::cout << "I´m swimming to the right!" << std::endl;
     }
     else
     {
@@ -199,14 +227,20 @@ void SwimmingPool::dive(bool breathStatus)
     }
 }
 
-int SwimmingPool::bathInSun(bool useSunProtection, int startTime)
-{
-    useSunProtection = 30;
-    return startTime;
+int SwimmingPool::bathInSun(bool useSunProtection, int targetTime)
+{    
+    if(useSunProtection && (targetTime < 60))
+    {
+        std::cout << "You are protected!" << std::endl;
+    }    
+    
+    return targetTime;
 }
 
 struct BikePark
 {
+    BikePark();
+
     int amountTracks = 23;
     float hightMountain = 3400; //meters
     int numLifts = 5;
@@ -214,19 +248,21 @@ struct BikePark
     int accidentsYear = 700;
     
     struct Bike
-        {
-            bool hasFullSuspension = true;
-            std::string brand = "GT";
-            std::string color = "red";
-            float wheelSize = 27.5f;
-            float ageBike = 4.5f;
-            float pressureSuspension = 95.4f;
-            int sag = 15;
+    {
+        Bike();
 
-            float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
-            int setupSuspension(float targetPressure, int targetSag);
-            void repair();
-        };
+        bool hasFullSuspension = true;
+        std::string brand = "GT";
+        std::string color = "red";
+        float wheelSize = 27.5f;
+        float ageBike = 4.5f;
+        float pressureSuspension = 95.4f;
+        int sag = 15;
+
+        float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
+        int setupSuspension(float targetPressure, int targetSag);
+        void repair();
+    };
 
     void rideDownhill();
     bool eatLunch(); //returns false if person is still hungry     
@@ -234,6 +270,16 @@ struct BikePark
 
     Bike firstBike;
 };
+
+BikePark::BikePark()
+{
+    std::cout << "BikePark being constructed!" << std::endl;
+}
+
+BikePark::Bike::Bike()
+{
+    std::cout << "BikePark::Bike being constructed!" << std::endl;
+}
 
 float BikePark::Bike::inflateTires(float targetPressureTire, float currentPressur)
 {
@@ -268,6 +314,8 @@ void BikePark::haveGoodTime()
 
 struct Brakes
 {
+    Brakes();
+
     int numPistons = 4;
     int numScrews = 6;
     float higthSpacer = 34.3f; //mm
@@ -278,6 +326,11 @@ struct Brakes
     void blockWheels(); 
     bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
 };
+
+Brakes::Brakes()
+{
+    std::cout << "Brakes being constructed!" << std::endl;
+}
 
 float Brakes::slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime)
 {
@@ -301,6 +354,8 @@ bool Brakes::squeak(std::string weatherConditions)
 
 struct Pedals
 {
+    Pedals();
+
     std::string brand = "RaceFace";
     int size = 10;
     std::string color = "black";
@@ -309,8 +364,13 @@ struct Pedals
 
     void assemble();
     void turn();
-    float accelerateBike(float currentSpeed, float targedSpeed); // returns updated speed
+    float accelerateBike(float currentSpeed, float targetSpeed); // returns updated speed
 };
+
+Pedals::Pedals()
+{
+    std::cout << "Pedals being constructed!" << std::endl;
+}
 
 void Pedals::assemble()
 {
@@ -322,13 +382,15 @@ void Pedals::turn()
     
 }
 
-float Pedals::accelerateBike(float currentSpeed, float targedSpeed)
+float Pedals::accelerateBike(float currentSpeed, float targetSpeed)
 {
-    return targedSpeed - currentSpeed;
+    return targetSpeed - currentSpeed;
 }
 
 struct Suspension
 {
+    Suspension();
+
     float pressure = 80.0; //PSI
     int travel = 170; //mm
     int stanchionDiameter = 38; //mm 
@@ -339,6 +401,11 @@ struct Suspension
     void dampen(float impactForce);   
     bool breakSuspension(); //returns suspension status
 };
+
+Suspension::Suspension()
+{
+    std::cout << "Suspension being constructed!" << std::endl;
+}
 
 void Suspension::traction(bool setupCorrect)
 {
@@ -368,6 +435,8 @@ bool Suspension::breakSuspension()
 
 struct Frame
 {
+    Frame();
+
     std::string material = "carbon";
     std::string color = "black";
     std::string brand = "YT Industries";
@@ -378,6 +447,11 @@ struct Frame
     void bePainted(std::string color);
     bool breakFrame(); //returns frame status
 };
+
+Frame::Frame()
+{
+    std::cout << "Frame being constructed!" << std::endl;
+}
 
 void Frame::assemble()
 {
@@ -392,7 +466,7 @@ void Frame::bePainted(std::string newColor)
     }
     else
     {
-        std::cout << "Color not available!";
+        std::cout << "Color not available!" << std::endl;
     }
 }
 
@@ -403,6 +477,8 @@ bool Frame::breakFrame()
 
 struct Handlebar
 {
+    Handlebar();
+
     std::string brand = "RaceFace";
     float clampDiameter = 25.3f; //mm
     float rise = 20.4f; //mm
@@ -413,6 +489,11 @@ struct Handlebar
     float moveBikeLeft(float initSteeringAngle); //returns updated angle
     bool controlleBike(float speedAngleChange);// returns controlle status 
 };
+
+Handlebar::Handlebar()
+{
+    std::cout << "Handlebar being constructed!" << std::endl;
+}
 
 float Handlebar::moveBikeRight(float initSteeringAngle)
 {
@@ -438,6 +519,8 @@ bool Handlebar::controlleBike(float speedAngleChange)
 
 struct MountainBike
 {
+    MountainBike();
+
     Brakes brakes;
     Pedals pedals;
     Suspension suspesion;
@@ -445,9 +528,14 @@ struct MountainBike
     Handlebar handlebar;
 
     void crashTree(bool brakesStatus, Handlebar handlebar);
-    void bunnyHop(Suspension suspension);    
+    void bunnyHop(int jumpHight);    
     void goUphill(Pedals pedals, Handlebar handlebar, float slope);
 };
+
+MountainBike::MountainBike()
+{
+    std::cout << "MountainBike being constructed!" << std::endl;
+}
 
 void MountainBike::crashTree(bool brakesStatus, Handlebar handlebarCrash)
 {
@@ -457,9 +545,9 @@ void MountainBike::crashTree(bool brakesStatus, Handlebar handlebarCrash)
     }
 }
 
-void MountainBike::bunnyHop(Suspension suspensionHop)
+void MountainBike::bunnyHop(int jumpHight)
 {
-    suspensionHop.breakSuspension();
+    std::cout << "You jumped " << jumpHight << "cm!" << std::endl;
 }
 
 void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, float slope)
@@ -468,14 +556,75 @@ void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, floa
     pedalsUphill.accelerateBike(10.0f, 12.0f);
     if(slope > 10.5f)
     {
-        std::cout << "too steep";
+        std::cout << "too steep!" << std::endl;
     }
 }
 
 int main()
 {
     Example::main();
+
+    Bank newBank;
+    Bank::Customer tom;
+    School newSchool;
+    SwimmingPool newPool;
+    BikePark newBikePark;
+    BikePark::Bike newBike;
+    Brakes newBrakes;
+    Pedals newPedals;
+    Suspension newSuspesion;
+    Frame newFrame;
+    Handlebar newHandlebar;
+    MountainBike newMountainBike;
+    std::cout << std::endl;
     
+    newBank.depositMoney(tom, 2000.50f);
+    newBank.withdrawMoney(tom, 500.0f);
+    tom.cancelBankAccount(false);
+    tom.talkEmployee("I need to talk to your boss");
+    tom.robBank(true);
+
+    newSchool.writeGoodGrades(1.5f);
+    newSchool.skipSchool(true);
+    newSchool.eatLunch();
+
+    newPool.bathInSun(true);
+    newPool.dive(false);
+    newPool.swim("right");
+
+    newBikePark.eatLunch();
+    newBikePark.haveGoodTime();
+    newBikePark.rideDownhill();
+
+    newBike.inflateTires(27.0f, 20.0f);
+    newBike.repair();
+    newBike.setupSuspension(95.4f, 25);
+
+    newBrakes.blockWheels();
+    newBrakes.slowDownBike(10, 2.5f, 10.5f);
+    newBrakes.squeak("rain");
+
+    float accelerateBikeReturn = newPedals.accelerateBike(8.5f, 15.0f);
+    newPedals.assemble();
+    newPedals.turn();
+
+    newSuspesion.breakSuspension();
+    newSuspesion.dampen(555.5);
+    newSuspesion.traction(true);
+
+    newFrame.assemble();
+    newFrame.bePainted("Red");
+    newFrame.breakFrame();
+
+    newHandlebar.controlleBike(5.6f);
+    newHandlebar.moveBikeLeft(80.4f);
+    newHandlebar.moveBikeRight(75.3f);
+
+    newMountainBike.bunnyHop(30);
+    newMountainBike.crashTree(false, newHandlebar);
+    newMountainBike.goUphill(newPedals, newHandlebar, 30.1f);
+
+    std::cout << "You need to drive " << accelerateBikeReturn << " km/h faster!" << std::endl;
     
     std::cout << "good to go!" << std::endl;
 }
