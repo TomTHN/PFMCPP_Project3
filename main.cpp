@@ -44,9 +44,9 @@ struct Bank
 {
     Bank();
 
-    int numATM = 3;
-    int amountEmployees = 20;
-    int amountSecurityCameras = 5;
+    int numATM;
+    int amountEmployees {20};
+    int amountSecurityCameras {5};
     int numBankCounters = 5;
     int numCustomersDay = 1000;
 
@@ -54,10 +54,9 @@ struct Bank
     {
         Customer();
 
-        int customerNumber = 12345678;
-        int age = 45;
+        int customerNumber, age;
         std::string gender = "male";
-        float bankBalance = 4550.60f;
+        float bankBalance {4550.60f};
         int memberTime  = 600; //days
 
         void cancelBankAccount(bool state);
@@ -70,12 +69,12 @@ struct Bank
     float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
 };
 
-Bank::Bank()
+Bank::Bank() : numATM(3)
 {
     std::cout << std::endl << "Bank being constructed!" << std::endl;
 }
 
-Bank::Customer::Customer()
+Bank::Customer::Customer() : customerNumber{12345678}, age{45}
 {
     std::cout << "Bank::Customer being constructed!" << std::endl;
 }
@@ -128,8 +127,7 @@ struct School
 
     int amountClassRooms = 25;
     int numTeachers = 50; 
-    float amountBreakTime = 30.0f; //minutes
-    float overallGradePointAverageSchool = 2.4f;
+    float amountBreakTime, overallGradePointAverageSchool;
     int numPupils = 630;
 
     void writeGoodGrades(float mathGrade);
@@ -137,7 +135,7 @@ struct School
     bool eatLunch(); //returns false if person is still hungry 
 };
 
-School::School()
+School::School() : amountBreakTime{30.0f}, overallGradePointAverageSchool{2.4f}
 {
     std::cout << "School being constructed!" << std::endl;
 }
@@ -162,8 +160,8 @@ struct SwimmingPool
     SwimmingPool();
 
     int amountPools = 4;
-    float maxHightDivingBoard = 10.0f; //meters
-    float lengthSwimminglane = 50.0; //meters
+    float maxHightDivingBoard {10.0f}; //meters
+    float lengthSwimminglane {50.0}; //meters
     float amountWater = 30000.0f; //cubic meter
     int visitorsYear = 20000;
 
@@ -181,7 +179,7 @@ void SwimmingPool::swim(std::string direction)
 {
     if(direction == "right")
     {
-        std::cout << "I´m swimming to the right!" << std::endl;
+        std::cout << "I´m swimming to the right on a " << lengthSwimminglane << " m swimming lane!" << std::endl;
     }
     else
     {
@@ -211,8 +209,8 @@ struct BikePark
 {
     BikePark();
 
-    int amountTracks = 23;
-    float hightMountain = 3400; //meters
+    int amountTracks;
+    float hightMountain; //meters
     int numLifts = 5;
     int amountBlackDiamontTracks = 10;
     int accidentsYear = 700;
@@ -227,7 +225,7 @@ struct BikePark
         float wheelSize = 27.5f;
         float ageBike = 4.5f;
         float pressureSuspension = 95.4f;
-        int sag = 15;
+        int sag;
 
         float inflateTires(float targetPressureTire, float currentPressur); //Returns updated pressure 
         int setupSuspension(float targetPressure, int targetSag);
@@ -241,12 +239,12 @@ struct BikePark
     Bike firstBike;
 };
 
-BikePark::BikePark()
+BikePark::BikePark() : amountTracks{23}, hightMountain{3400}
 {
     std::cout << "BikePark being constructed!" << std::endl;
 }
 
-BikePark::Bike::Bike()
+BikePark::Bike::Bike() : sag{15}
 {
     std::cout << "BikePark::Bike being constructed!" << std::endl;
 }
@@ -259,6 +257,7 @@ float BikePark::Bike::inflateTires(float targetPressureTire, float currentPressu
 int BikePark::Bike::setupSuspension(float targetPressure, int targetSag)
 {
     pressureSuspension = targetPressure;
+    std::cout << "my sag is " << sag << " cm but I need " << targetSag << " cm!" << std::endl;
     return targetSag - sag;
 }
 
@@ -286,18 +285,15 @@ struct Brakes
 {
     Brakes();
 
-    int numPistons = 4;
-    int numScrews = 6;
+    int numPistons, numScrews, numBreakPads, maintenanceInterval;
     float higthSpacer = 34.3f; //mm
-    int numBreakPads = 4;
-    int maintenanceInterval = 365; //days
 
     float slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime); //returns updated speed
     void blockWheels(); 
     bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
 };
 
-Brakes::Brakes()
+Brakes::Brakes() : numPistons{4}, numScrews{6}, numBreakPads{4}, maintenanceInterval{365}
 {
     std::cout << "Brakes being constructed!" << std::endl;
 }
@@ -326,9 +322,9 @@ struct Pedals
 {
     Pedals();
 
-    std::string brand = "RaceFace";
+    std::string brand {"RaceFace"};
     int size = 10;
-    std::string color = "black";
+    std::string color {"black"};
     std::string material = "titanium";
     int amountTorque = 15; //Nm
 
@@ -364,15 +360,14 @@ struct Suspension
     float pressure = 80.0; //PSI
     int travel = 170; //mm
     int stanchionDiameter = 38; //mm 
-    std::string springType = "air";
-    std::string damperType = "coil";
+    std::string springType, damperType;
 
     void traction(bool setupCorrect);
     void dampen(float impactForce);   
     bool breakSuspension(); //returns suspension status
 };
 
-Suspension::Suspension()
+Suspension::Suspension() : springType{"air"}, damperType{"coil"}
 {
     std::cout << "Suspension being constructed!" << std::endl;
 }
@@ -410,8 +405,8 @@ struct Frame
     std::string material = "carbon";
     std::string color = "black";
     std::string brand = "YT Industries";
-    float weight = 5.4f; //kg
-    float size = 634.0f; //mm
+    float weight {5.4f}; //kg
+    float size {634.0f}; //mm
 
     void assemble(); 
     void bePainted(std::string color);
@@ -449,11 +444,11 @@ struct Handlebar
 {
     Handlebar();
 
-    std::string brand = "RaceFace";
+    std::string brand {"RaceFace"};
     float clampDiameter = 25.3f; //mm
     float rise = 20.4f; //mm
-    std::string color = "gold";
-    std::string material = "carbon";
+    std::string color {"gold"};
+    std::string material {"carbon"};
 
     float moveBikeRight(float initSteeringAngle); //returns updated angle
     float moveBikeLeft(float initSteeringAngle); //returns updated angle
@@ -474,6 +469,7 @@ float Handlebar::moveBikeRight(float initSteeringAngle)
 float Handlebar::moveBikeLeft(float initSteeringAngle)
 {
     float moveLeftAngel = 90.0f;
+    std::cout << "Using a " << color << "en " << brand << " handlebar." << std::endl;
     return moveLeftAngel - initSteeringAngle;
 }
 
