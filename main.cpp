@@ -186,7 +186,7 @@ struct School
             //Wait 1 minute 
         }
 
-        std::cout << "Lets go back to the class room" << std::endl;
+        std::cout << "Lets go back to the classroom" << std::endl;
     }
 };
 
@@ -233,7 +233,7 @@ struct SwimmingPool
         }
 
         float metersLeft = lengthSwimminglane - metersDone;
-        std::cout << "You need to swim " << metersLeft << "to finish the lane" << std::endl;
+        std::cout << "You need to swim " << metersLeft << " m to finish the lane" << std::endl;
         return metersLeft;
     }
 };
@@ -282,7 +282,8 @@ struct BikePark
     int numLifts = 5;
     int amountBlackDiamontTracks = 10;
     int accidentsYear = 700;
-    
+    int bikeMaximum {6};
+
     struct Bike
     {
         Bike();
@@ -303,14 +304,18 @@ struct BikePark
     void rideDownhill();
     bool eatLunch(); //returns false if person is still hungry     
     void haveGoodTime();
-    void fillPickupTruckWithBikes(int amountOfBikes, int bikeMaximum = 6)
+    void fillPickupTruckWithBikes(int amountOfBikes)
     {
-        for(int addedBikes = 1; amountOfBikes == addedBikes; ++addedBikes)
+        for(int addedBikes = 0; amountOfBikes > addedBikes; ++addedBikes)
         {
             if(addedBikes == bikeMaximum)
             {
-                std::cout << "Truck is full" << std::endl;
-            }     
+                std::cout << "Truck is full!" << std::endl;
+            }   
+            else
+            {
+                std::cout << "Still space!" << std::endl;
+            }
         }
     }
 
@@ -376,6 +381,8 @@ struct Brakes
             blockWheels();
             std::cout << "Your wheels are blocked" << std::endl;
         }
+        
+        std::cout << "Your wheels are spinning" << std::endl;
     }
 };
 
@@ -421,6 +428,8 @@ struct Pedals
     {
         for(int hit = 0; hit < hitsTillBlood; ++hit)
         {
+            std::cout << hit << std::endl;
+            
             if(hit == 9)
             {
                 std::cout << "You´re bleeding" << std::endl;
@@ -503,16 +512,18 @@ struct Frame
     std::string brand = "YT Industries";
     float weight {5.4f}; //kg
     float size {634.0f}; //mm
+    int scratches {0};
 
     void assemble(); 
     void bePainted(std::string color);
     bool breakFrame(); //returns frame status
-    void scratchFrame()
-
-
-
-
-
+    void scratchFrame(int addScratch)
+    {
+        for(int i = 0; addScratch < i; ++i)
+        {
+            ++scratches;
+        }
+    }
 };
 
 Frame::Frame()
@@ -594,10 +605,20 @@ struct MountainBike
     Suspension suspesion;
     Frame frame;
     Handlebar handlebar;
+    int psiTire {20};
 
     void crashTree(bool brakesStatus, Handlebar handlebar);
     void bunnyHop(int jumpHight);    
     void goUphill(Pedals pedals, Handlebar handlebar, float slope);
+    void inflateTires(int psiTarget, int psiPerPump = 1)
+    {    
+        int startTirePressure = psiTire;
+        for(int pump = 0; (psiTarget - startTirePressure) > pump; ++pump)  //only works for psiPerPump = 1 and Target > Tire
+        {
+            psiTire += psiPerPump;
+        }
+        std::cout << "You pumped " << psiTire << " times!" << std::endl;
+    }
 };
 
 MountainBike::MountainBike()
@@ -648,6 +669,7 @@ int main()
     
     newBank.depositMoney(tom, 2000.50f);
     newBank.withdrawMoney(tom, 500.0f);
+    newBank.refillATM(10);
     tom.cancelBankAccount(false);
     tom.talkEmployee("I need to talk to your boss");
     tom.robBank(true);
@@ -655,14 +677,17 @@ int main()
     newSchool.writeGoodGrades(1.5f);
     newSchool.skipSchool(true);
     newSchool.eatLunch();
-
+    newSchool.breakTimeCounter();
+    
     newPool.bathInSun(true);
     newPool.dive(false);
     newPool.swim("right");
+    newPool.metersLeftToSwim(5);
 
     newBikePark.eatLunch();
     newBikePark.haveGoodTime();
     newBikePark.rideDownhill();
+    newBikePark.fillPickupTruckWithBikes(7);
 
     newBike.inflateTires(27.0f, 20.0f);
     newBike.repair();
@@ -671,10 +696,12 @@ int main()
     newBrakes.blockWheels();
     newBrakes.slowDownBike(10, 2.5f, 10.5f);
     newBrakes.squeak("rain");
+    newBrakes.breakStatus(false);
 
     float accelerateBikeReturn = newPedals.accelerateBike(8.5f, 15.0f);
     newPedals.assemble();
     newPedals.turn();
+    newPedals.hitShin(10);
 
     newSuspesion.breakSuspension();
     newSuspesion.dampen(555.5);
@@ -691,6 +718,8 @@ int main()
     newMountainBike.bunnyHop(30);
     newMountainBike.crashTree(false, newHandlebar);
     newMountainBike.goUphill(newPedals, newHandlebar, 30.1f);
+    newMountainBike.inflateTires(25, 1);
+    std::cout << newMountainBike.psiTire << std::endl;
 
     std::cout << "You need to drive " << accelerateBikeReturn << " km/h faster!" << std::endl;
     
