@@ -101,14 +101,14 @@ struct Bank
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
     float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
-    void refillATM(float amountWithdrawFiftyDollar)
+    void refillATM(int amountWithdrawFiftyDollar)
     {
         for (int i = 0; i < amountWithdrawFiftyDollar; ++i)
         {
             moneyATM -= 50.00f;
             if(moneyATM <= 1000.00f)
             {
-                std::cout << "Only " << moneyATM << " Dollar left. Please refill ATM" << std:endl;
+                std::cout << "Only " << moneyATM << " Dollar left. Please refill ATM" << std::endl;
             }
         }  
     }
@@ -166,11 +166,6 @@ float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepa
     return amountCredit / periodToRepay;
 }
 
-float Bank::paybackCredit(Customer customer, float creditAmount, float paybackRate)
-{
-    return 
-}
-
 struct School
 {
     School();
@@ -185,9 +180,9 @@ struct School
     bool eatLunch(); //returns false if person is still hungry 
     void breakTimeCounter()
     {
-        while(amountBeakTime != 0)
+        while(amountBreakTime != 0.00f)
         {
-            amountBreakTime -= 1;
+            amountBreakTime -= 1.00f;
             //Wait 1 minute 
         }
 
@@ -232,12 +227,14 @@ struct SwimmingPool
     {
         float metersDone = 0;
         
-        for(i = 0, strokes < i, ++i)
+        for(int i = 0; strokes > i; ++i)
         {
             metersDone += metersPerStroke;
         }
 
-        return lengthSwimminglane - metersDone;
+        float metersLeft = lengthSwimminglane - metersDone;
+        std::cout << "You need to swim " << metersLeft << "to finish the lane" << std::endl;
+        return metersLeft;
     }
 };
 
@@ -306,6 +303,16 @@ struct BikePark
     void rideDownhill();
     bool eatLunch(); //returns false if person is still hungry     
     void haveGoodTime();
+    void fillPickupTruckWithBikes(int amountOfBikes, int bikeMaximum = 6)
+    {
+        for(int addedBikes = 1; amountOfBikes == addedBikes; ++addedBikes)
+        {
+            if(addedBikes == bikeMaximum)
+            {
+                std::cout << "Truck is full" << std::endl;
+            }     
+        }
+    }
 
     Bike firstBike;
 };
@@ -362,6 +369,14 @@ struct Brakes
     float slowDownBike(float initialSpeed, float amountDeceleration, float brakeTime); //returns updated speed
     void blockWheels(); 
     bool squeak(std::string weatherConditions); // returns squeaking status (true = squeak)
+    void breakStatus(bool breakStatus) //for example to avoid endless loop only "false"
+    {
+        while(breakStatus)
+        {
+            blockWheels();
+            std::cout << "Your wheels are blocked" << std::endl;
+        }
+    }
 };
 
 Brakes::Brakes() : numPistons{4}, numScrews{6}, numBreakPads{4}, maintenanceInterval{365}
@@ -402,6 +417,16 @@ struct Pedals
     void assemble();
     void turn();
     float accelerateBike(float currentSpeed, float targetSpeed); // returns updated speed
+    void hitShin(int hitsTillBlood = 10)
+    {
+        for(int hit = 0; hit < hitsTillBlood; ++hit)
+        {
+            if(hit == 9)
+            {
+                std::cout << "You´re bleeding" << std::endl;
+            }
+        }
+    }
 };
 
 Pedals::Pedals()
@@ -482,6 +507,12 @@ struct Frame
     void assemble(); 
     void bePainted(std::string color);
     bool breakFrame(); //returns frame status
+    void scratchFrame()
+
+
+
+
+
 };
 
 Frame::Frame()
