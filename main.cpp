@@ -82,6 +82,7 @@ struct Bank
     int amountSecurityCameras {5};
     int numBankCounters = 5;
     int numCustomersDay = 1000;
+    float moneyATM {40000.00f};
 
     struct Customer
     {
@@ -100,6 +101,17 @@ struct Bank
     float withdrawMoney(Customer customer, float moneyToWithdraw); //returns updated bank balance
     float depositMoney(Customer customer, float moneyToDeposit); //returns updated bank balance
     float takeCredit(Customer customer, float amountCredit, float periodToRepay); //returns interest rate
+    void refillATM(float amountWithdrawFiftyDollar)
+    {
+        for (int i = 0; i < amountWithdrawFiftyDollar; ++i)
+        {
+            moneyATM -= 50.00f;
+            if(moneyATM <= 1000.00f)
+            {
+                std::cout << "Only " << moneyATM << " Dollar left. Please refill ATM" << std:endl;
+            }
+        }  
+    }
 };
 
 Bank::Bank() : numATM(3)
@@ -154,6 +166,11 @@ float Bank::takeCredit(Customer customer, float amountCredit, float periodToRepa
     return amountCredit / periodToRepay;
 }
 
+float Bank::paybackCredit(Customer customer, float creditAmount, float paybackRate)
+{
+    return 
+}
+
 struct School
 {
     School();
@@ -166,6 +183,16 @@ struct School
     void writeGoodGrades(float mathGrade);
     void skipSchool(bool wantSkipSchool); 
     bool eatLunch(); //returns false if person is still hungry 
+    void breakTimeCounter()
+    {
+        while(amountBeakTime != 0)
+        {
+            amountBreakTime -= 1;
+            //Wait 1 minute 
+        }
+
+        std::cout << "Lets go back to the class room" << std::endl;
+    }
 };
 
 School::School() : amountBreakTime{30.0f}, overallGradePointAverageSchool{2.4f}
@@ -201,6 +228,17 @@ struct SwimmingPool
     void swim(std::string direction);
     void dive(bool breathStatus);         
     int bathInSun(bool useSunProtection, int targetTime = 30); //returns endTime
+    float metersLeftToSwim(int strokes, float metersPerStroke = 1.00f)
+    {
+        float metersDone = 0;
+        
+        for(i = 0, strokes < i, ++i)
+        {
+            metersDone += metersPerStroke;
+        }
+
+        return lengthSwimminglane - metersDone;
+    }
 };
 
 SwimmingPool::SwimmingPool()
