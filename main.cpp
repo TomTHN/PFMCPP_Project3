@@ -227,7 +227,7 @@ struct SwimmingPool
     {
         float metersDone = 0;
         
-        for(int i = 0; strokes > i; ++i)
+        for(int i = 0; i < strokes; ++i)
         {
             metersDone += metersPerStroke;
         }
@@ -306,7 +306,7 @@ struct BikePark
     void haveGoodTime();
     void fillPickupTruckWithBikes(int amountOfBikes)
     {
-        for(int addedBikes = 0; amountOfBikes > addedBikes; ++addedBikes)
+        for(int addedBikes = 0; addedBikes < amountOfBikes; ++addedBikes)
         {
             if(addedBikes == bikeMaximum)
             {
@@ -613,7 +613,7 @@ struct MountainBike
     void inflateTires(int psiTarget, int psiPerPump = 1)
     {    
         int startTirePressure = psiTire;
-        for(int pump = 0; (psiTarget - startTirePressure) > pump; ++pump)  //only works for psiPerPump = 1 and Target > Tire
+        for(int pump = 0; pump < (psiTarget - startTirePressure); ++pump)  //only works for psiPerPump = 1 and Target > Tire
         {
             psiTire += psiPerPump;
         }
@@ -643,7 +643,7 @@ void MountainBike::goUphill(Pedals pedalsUphill, Handlebar handlebarUphill, floa
 {
     handlebarUphill.controlleBike(15.0f);
     pedalsUphill.accelerateBike(10.0f, 12.0f);
-    if(slope > 10.5f)
+    if(10.5f < slope)
     {
         std::cout << "too steep!" << std::endl;
     }
